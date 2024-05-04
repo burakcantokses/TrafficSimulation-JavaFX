@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.transform.Rotate;
 
 //Building
 //There are three types of buildings with four different colors. Type 0 and type 1 buildings are big
@@ -50,7 +51,21 @@ public class Building {
     }
     private Group createType0Building(int x, int y, int cellSize, int rotation, int color) {
         // Outer rectangle
-        Rectangle outerRectangle = new Rectangle(x * cellSize - 10, y * cellSize - 5, cellSize * 2.5, cellSize * 3.5);
+        Rectangle outerRectangle = new Rectangle();
+        switch (rotation) {
+            case 90:
+                outerRectangle = new Rectangle(x * cellSize - 5, y * cellSize - 10, cellSize * 3.5, cellSize * 2.5);
+                break;
+            case 180:
+                outerRectangle = new Rectangle(x * cellSize - 10, y * cellSize - 10, cellSize * 2.5, cellSize * 3.5);
+                break;
+            case 270:
+                outerRectangle = new Rectangle(x * cellSize - 10, y * cellSize - 5, cellSize * 3.5, cellSize * 2.5);
+                break;
+            default:
+                outerRectangle = new Rectangle(x * cellSize - 10, y * cellSize - 5, cellSize * 2.5, cellSize * 3.5);
+                break;
+        }
         outerRectangle.setArcWidth(12);
         outerRectangle.setArcHeight(12);
         outerRectangle.setFill(Color.web("#EEF8FE"));
@@ -86,6 +101,8 @@ public class Building {
 
         return group;
     }
+
+
     // Utility method to get color based on index
     private Color getColor(int colorIndex) {
         switch (colorIndex) {

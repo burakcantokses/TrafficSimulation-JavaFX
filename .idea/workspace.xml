@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="building hatasız">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="building hatasız 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
     </list>
@@ -84,7 +84,7 @@
       <updated>1714788346398</updated>
       <workItem from="1714788347503" duration="859000" />
       <workItem from="1714832701396" duration="6053000" />
-      <workItem from="1714841822068" duration="3266000" />
+      <workItem from="1714841822068" duration="4374000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -118,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714843846029</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="building hatasız 2">
+      <option name="closed" value="true" />
+      <created>1714845158697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714845158697</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +147,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="node" />
     <MESSAGE value="building hatasız" />
-    <option name="LAST_COMMIT_MESSAGE" value="building hatasız" />
+    <MESSAGE value="building hatasız 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="building hatasız 2" />
   </component>
 </project>
