@@ -3,6 +3,7 @@ import burak.tokses.ui.build.Building;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class TrafficSimulatorApplication extends Application {
@@ -19,6 +20,7 @@ public class TrafficSimulatorApplication extends Application {
         }
 
         Scene scene = new Scene(root, levelParser.metadata.getWidth(), levelParser.metadata.getHeight());
+        scene.setFill(Color.web("#9BC6DF"));
         primaryStage.setTitle("Traffic Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
