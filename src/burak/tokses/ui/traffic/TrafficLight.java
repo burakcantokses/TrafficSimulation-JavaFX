@@ -6,13 +6,13 @@ package burak.tokses.ui.traffic;
 //Light should also be able to change color when it’s clicked. Red and green are the two color op
 //tions.
 public class TrafficLight {
-    private int x1;
-    private int y1;
-    private int x2;
-    private int y2;
+    private double x1;
+    private double y1;
+    private double x2;
+    private double y2;
     private String color;
 
-    public TrafficLight(int x1, int y1, int x2, int y2, String color) {
+    public TrafficLight(double x1, double y1, double x2, double y2, String color) {
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;

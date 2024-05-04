@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSE1242.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/burak/tokses/ui/pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" afterDir="false" />
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/burak/tokses/ui/metadata/Metadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/burak/tokses/ui/path/Path.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +76,35 @@
       <option name="presentableId" value="Default" />
       <updated>1714788346398</updated>
       <workItem from="1714788347503" duration="859000" />
-      <workItem from="1714832701396" duration="1842000" />
+      <workItem from="1714832701396" duration="2481000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1714835729482</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714835729482</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
