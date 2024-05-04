@@ -1,0 +1,27 @@
+Metadata 800.0 800.0 15 15 2 50 5
+Building 0 0 0 4 2
+RoadTile 0 90 5 5
+RoadTile 2 90 5 6
+RoadTile 0 90 5 7
+RoadTile 0 180 4 6
+Building 2 180 0 5 8
+Building 2 270 2 3 6
+Building 1 270 2 9 6
+RoadTile 0 0 7 6
+RoadTile 0 0 8 6
+RoadTile 0 180 6 6
+TrafficLight 386.67 346.67 386.67 320.00
+Path 0 MoveTo 506.67 346.67
+Path 0 LineTo 453.33 336.00
+Path 0 LineTo 400.00 336.00
+Path 0 LineTo 346.67 336.00
+Path 0 LineTo 346.67 336.00
+Path 0 LineTo 304.00 336.00
+Path 0 LineTo 282.67 336.00
+Path 0 LineTo 240.00 336.00
+Path 1 MoveTo 293.33 453.33
+Path 1 LineTo 282.67 400.00
+Path 1 LineTo 282.67 357.33
+Path 1 LineTo 282.67 336.00
+Path 1 LineTo 282.67 293.33
+Path 1 LineTo 293.33 240.00
