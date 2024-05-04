@@ -8,9 +8,18 @@ import burak.tokses.ui.traffic.TrafficLight;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class LevelParser {
+public class MetadataParser {
+    //list
+    public List<Building> buildings = new ArrayList<Building>();
+    public Metadata metadata;
+    public RoadTile roadTile;
+    public TrafficLight trafficLight;
+    public Path path;
+
     public void parseFile(String metadataFile) {
         try {
             File file = new File(metadataFile);
@@ -48,7 +57,7 @@ public class LevelParser {
         }
     }
 
-    private void parseMetadata(String[] parts) {
+    public void parseMetadata(String[] parts) {
         double width = Double.parseDouble(parts[1]);
         double height = Double.parseDouble(parts[2]);
         int gridX = Integer.parseInt(parts[3]);
@@ -57,10 +66,11 @@ public class LevelParser {
         int carsToWin = Integer.parseInt(parts[6]);
         int allowedCrashes = Integer.parseInt(parts[7]);
         // Metadata işleme...
-        Metadata metadata = new Metadata(width, height, gridX, gridY, paths, carsToWin, allowedCrashes);
+        metadata = new Metadata(width, height, gridX, gridY, paths, carsToWin, allowedCrashes);
+
     }
 
-    private void parseBuilding(String[] parts) {
+    public void parseBuilding(String[] parts) {
         int type = Integer.parseInt(parts[1]);
         int rotation = Integer.parseInt(parts[2]);
         int colorIndex = Integer.parseInt(parts[3]);
@@ -68,33 +78,34 @@ public class LevelParser {
         int gridY = Integer.parseInt(parts[5]);
         // Building işleme...
         Building building = new Building(type, rotation, colorIndex, gridX, gridY);
+        buildings.add(building);
     }
 
-    private void parseRoadTile(String[] parts) {
+    public void parseRoadTile(String[] parts) {
         int type = Integer.parseInt(parts[1]);
         int rotation = Integer.parseInt(parts[2]);
         int gridX = Integer.parseInt(parts[3]);
         int gridY = Integer.parseInt(parts[4]);
         // RoadTile işleme...
-        RoadTile roadTile = new RoadTile(type, rotation, gridX, gridY);
+        roadTile = new RoadTile(type, rotation, gridX, gridY);
     }
 
-    private void parseTrafficLight(String[] parts) {
+    public void parseTrafficLight(String[] parts) {
         double x1 = Double.parseDouble(parts[1]);
         double y1 = Double.parseDouble(parts[2]);
         double x2 = Double.parseDouble(parts[3]);
         double y2 = Double.parseDouble(parts[4]);
         String color = "red"; // Başlangıçta trafik ışığı kırmızı olarak ayarlanır
         // TrafficLight işleme...
-        TrafficLight trafficLight = new TrafficLight(x1, y1, x2, y2, color);
+        trafficLight = new TrafficLight(x1, y1, x2, y2, color);
     }
 
-    private void parsePath(String[] parts) {
+    public void parsePath(String[] parts) {
         int pathIndex = Integer.parseInt(parts[1]);
         String command = parts[2];
         double x = Double.parseDouble(parts[3]);
         double y = Double.parseDouble(parts[4]);
         // Path işleme...
-        Path path = new Path(pathIndex, command, x, y);
+        path = new Path(pathIndex, command, x, y);
     }
 }

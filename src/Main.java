@@ -1,8 +1,8 @@
-import burak.tokses.parser.LevelParser;
+import burak.tokses.parser.MetadataParser;
 
 public class Main {
     public static void main(String[] args) {
-        LevelParser levelParser = new LevelParser();
+        MetadataParser levelParser = new MetadataParser();
         levelParser.parseFile("metadata.txt");
     }
 }
