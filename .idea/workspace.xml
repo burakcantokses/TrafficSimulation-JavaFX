@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="building hatasız 4" />
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="building hatasız 5 (editli bu olmazsa 4)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +85,7 @@
       <workItem from="1714788347503" duration="859000" />
       <workItem from="1714832701396" duration="6053000" />
       <workItem from="1714841822068" duration="5157000" />
-      <workItem from="1714911270434" duration="3164000" />
+      <workItem from="1714911270434" duration="3606000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -140,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714914454683</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="building hatasız 5 (editli bu olmazsa 4)">
+      <option name="closed" value="true" />
+      <created>1714914831824</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714914831824</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +175,7 @@
     <MESSAGE value="building hatasız 2" />
     <MESSAGE value="building hatasız 3" />
     <MESSAGE value="building hatasız 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="building hatasız 4" />
+    <MESSAGE value="building hatasız 5 (editli bu olmazsa 4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="building hatasız 5 (editli bu olmazsa 4)" />
   </component>
 </project>
