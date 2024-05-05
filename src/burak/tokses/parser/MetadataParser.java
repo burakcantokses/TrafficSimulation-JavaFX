@@ -16,7 +16,7 @@ public class MetadataParser {
     //list
     public List<Building> buildings = new ArrayList<Building>();
     public Metadata metadata;
-    public RoadTile roadTile;
+    public List<RoadTile> roadTiles = new ArrayList<RoadTile>();
     public TrafficLight trafficLight;
     public Path path;
 
@@ -87,7 +87,8 @@ public class MetadataParser {
         int gridX = Integer.parseInt(parts[3]);
         int gridY = Integer.parseInt(parts[4]);
         // RoadTile işleme...
-        roadTile = new RoadTile(type, rotation, gridX, gridY);
+        RoadTile roadTile = new RoadTile(type, rotation, gridX, gridY);
+        roadTiles.add(roadTile);
     }
 
     public void parseTrafficLight(String[] parts) {

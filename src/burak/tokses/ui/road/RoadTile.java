@@ -1,29 +1,62 @@
 package burak.tokses.ui.road;
 
-//There are four types of RoadTiles. These different road types are essential for creating city
-//roads that can go in any direction and connect in any way. The main difference between road
-//types are their shapes. Type with 0 index is a straight road and with index 1 is a curved road.
-//Type 2 is a tile to put at the intersection of four different road whereas type 3 can be used at the
-//intersection of three roads. RoadTile class takes the road type as an integer parameter and
-//draw the road shape accordingly. It also takes rotation parameter too and draw the shapes con
-//sidering the rotation as well. You can see the RoadTile types and their rotated versions. You
-//also need to draw a centerline on the roads to distinguish left and right sides of the roads. That
-//part is not visible on the images.
-public class RoadTile {
-    private int x;
-    private int y;
-    private int type;
-    private int rotation;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
 
-    public RoadTile(int x, int y, int type, int rotation) {
-        this.x = x;
-        this.y = y;
+public class RoadTile {
+    public int type;
+    public int rotation;
+    public double x;
+    public double y;
+    public static final double TILE_SIZE = 50; // Yol parçası boyutu
+
+    public RoadTile(int type, int rotation, double x, double y) {
         this.type = type;
         this.rotation = rotation;
+        this.x = x * TILE_SIZE; // Kare koordinatları piksel cinsine çevrildi.
+        this.y = y * TILE_SIZE;
     }
 
-    public void print() {
-        System.out.println("RoadTile at x: " + x + ", y: " + y + ", type: " + type + ", rotation: " + rotation);
+    public void draw(Group group) {
+        switch (type) {
+            case 0:
+                drawStraightRoad(group);
+                break;
+        }
     }
 
+    private void drawStraightRoad(Group group) {
+        double width = TILE_SIZE; // Yolun genişliği
+        double height = TILE_SIZE * 0.8; // Yolun yüksekliği (1 gridcell'e yakın)
+
+        Rectangle road = new Rectangle(x, y + (TILE_SIZE - height) / 2, width, height);
+        road.setFill(Color.web("#FEFEFE"));
+        group.getChildren().add(road);
+    }
+
+    private void drawTurnRoad(Group group) {
+        Rectangle road = new Rectangle(x, y, TILE_SIZE, TILE_SIZE);
+        road.setFill(Color.TRANSPARENT);
+        road.setStroke(Color.BLACK);
+        road.setStrokeWidth(3);
+        group.getChildren().add(road);
+
+        // Dönüşe göre çizim
+        switch (rotation) {
+            case 0:
+                group.getChildren().add(new Line(x, y, x + TILE_SIZE, y + TILE_SIZE));
+                break;
+            case 90:
+                group.getChildren().add(new Line(x + TILE_SIZE, y, x, y + TILE_SIZE));
+                break;
+            case 180:
+                group.getChildren().add(new Line(x, y, x + TILE_SIZE, y + TILE_SIZE));
+                break;
+            case 270:
+                group.getChildren().add(new Line(x, y, x + TILE_SIZE, y + TILE_SIZE));
+                break;
+        }
+    }
 }

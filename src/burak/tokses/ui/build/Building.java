@@ -33,28 +33,27 @@ public class Building {
         this.y = y;
     }
 
-    public Node toNode() {
+    public Node toNode(double cellWidth, double cellHeight) {
         // Assuming each grid cell is 50x50 pixels
-        double cellSize = 53.33;
 
         switch (type) {
             case 0:
-                return createType0Building(x, y, cellSize, rotation, color);
+                return createType0Building(x, y, cellWidth, cellHeight, rotation, color);
             case 1:
-                return createType1Building(x, y, cellSize, rotation, color);
+                return createType1Building(x, y, cellWidth, cellHeight, rotation, color);
             case 2:
-                return createType2Building(x, y, cellSize, color);
+                return createType2Building(x, y, cellWidth, cellHeight, color);
             default:
                 return null;
         }
     }
 
-    public Group createType0Building(int x, int y, double cellSize, int rotation, int color) {
+    public Group createType0Building(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
         // Outer rectangle
-        double outerWidth = cellSize * 2.3;
-        double outerHeight = cellSize * 3.3;
-        double outerX = x * cellSize - 5;
-        double outerY = y * cellSize - 10;
+        double outerWidth = cellWidth * 2.3;
+        double outerHeight = cellHeight * 3.3;
+        double outerX = x * cellWidth - 5;
+        double outerY = y * cellHeight - 10;
         Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
         outerRectangle.setArcWidth(12);
         outerRectangle.setArcHeight(12);
@@ -62,9 +61,9 @@ public class Building {
         outerRectangle.setStroke(Color.BLACK);
 
         // Main rectangle
-        double mainX = outerX + outerWidth / 2 - cellSize; // outerRectangle'ın yatay merkezine göre hesaplandı
+        double mainX = outerX + outerWidth / 2 - cellWidth; // outerRectangle'ın yatay merkezine göre hesaplandı
         double mainY = outerY + 20; // outerRectangle'ın üst kısmına yerleştirildi ve biraz aşağı indirildi
-        Rectangle mainRectangle = new Rectangle(mainX, mainY, cellSize * 2, cellSize * 2);
+        Rectangle mainRectangle = new Rectangle(mainX, mainY, cellWidth * 2, cellHeight * 2);
         mainRectangle.setFill(getColor(color));
         mainRectangle.setStroke(getStrokeColor(color));
         mainRectangle.setStrokeWidth(5);
@@ -72,9 +71,9 @@ public class Building {
         mainRectangle.setArcHeight(12);
 
         // Inner rectangle
-        double innerSize = cellSize * 2 * 0.8;
-        double innerX = mainX + (cellSize * 2 - innerSize) / 2;
-        double innerY = mainY + (cellSize * 2 - innerSize) / 2;
+        double innerSize = cellWidth * 2 * 0.8;
+        double innerX = mainX + (cellWidth * 2 - innerSize) / 2;
+        double innerY = mainY + (cellHeight * 2 - innerSize) / 2;
         Rectangle innerRectangle = new Rectangle(innerX, innerY, innerSize, innerSize);
         innerRectangle.setFill(getColor(color));
         innerRectangle.setArcWidth(10);
@@ -99,12 +98,12 @@ public class Building {
         return group;
     }
 
-    public Group createType1Building(int x, int y, double cellSize, int rotation, int color) {
+    public Group createType1Building(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
         // Outer rectangle
-        double outerWidth = cellSize * 2.3;
-        double outerHeight = cellSize * 3.3;
-        double outerX = x * cellSize - 5;
-        double outerY = y * cellSize - 10;
+        double outerWidth = cellWidth * 2.3;
+        double outerHeight = cellHeight * 3.3;
+        double outerX = x * cellWidth - 5;
+        double outerY = y * cellHeight - 10;
         Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
         outerRectangle.setArcWidth(12);
         outerRectangle.setArcHeight(12);
@@ -112,17 +111,17 @@ public class Building {
         outerRectangle.setStroke(Color.BLACK);
 
         // Calculate main circle position
-        double mainCircleX = (x + 1) * cellSize;
-        double mainCircleY = (y + 1.1) * cellSize;
+        double mainCircleX = (x + 1) * cellWidth;
+        double mainCircleY = (y + 1.1) * cellHeight;
 
         // Main circle
-        Circle mainCircle = new Circle(mainCircleX, mainCircleY, cellSize);
+        Circle mainCircle = new Circle(mainCircleX, mainCircleY, cellWidth);
         mainCircle.setFill(getColor(color));
         mainCircle.setStroke(getStrokeColor(color));
         mainCircle.setStrokeWidth(5);
 
         // Calculate inner circle radius
-        double innerRadius = cellSize * 0.85;
+        double innerRadius = cellWidth * 0.85;
 
         // Inner circle
         Circle innerCircle = new Circle(mainCircleX, mainCircleY, innerRadius);
@@ -147,9 +146,9 @@ public class Building {
         return group;
     }
 
-    public Rectangle createType2Building(int x, int y, double cellSize, int color) {
+    public Rectangle createType2Building(int x, int y, double cellWidth, double cellHeight, int color) {
         // Create a rectangle
-        Rectangle rectangle = new Rectangle(x * cellSize, y * cellSize, cellSize, cellSize);
+        Rectangle rectangle = new Rectangle(x * cellWidth, y * cellHeight, cellWidth, cellHeight);
 
         // Set the arc width and height to make the corners rounded
         rectangle.setArcWidth(20);

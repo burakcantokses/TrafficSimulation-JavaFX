@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="building hatasız 5 (editli bu olmazsa 4)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +88,8 @@
       <workItem from="1714788347503" duration="859000" />
       <workItem from="1714832701396" duration="6053000" />
       <workItem from="1714841822068" duration="5157000" />
-      <workItem from="1714911270434" duration="3606000" />
+      <workItem from="1714911270434" duration="4757000" />
+      <workItem from="1714950421890" duration="2236000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -151,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714914831824</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="building hatasız 5 (editli bu olmazsa 4)">
+      <option name="closed" value="true" />
+      <created>1714914919419</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714914919419</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
