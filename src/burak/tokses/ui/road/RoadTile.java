@@ -10,53 +10,33 @@ public class RoadTile {
     public int rotation;
     public double x;
     public double y;
-    public static final double TILE_SIZE = 50; // Yol parçası boyutu
 
     public RoadTile(int type, int rotation, double x, double y) {
         this.type = type;
         this.rotation = rotation;
-        this.x = x * TILE_SIZE; // Kare koordinatları piksel cinsine çevrildi.
-        this.y = y * TILE_SIZE;
+        this.x = x;
+        this.y = y;
     }
 
-    public void draw(Group group) {
+    public void draw(Group group, double cellWidth, double cellHeight) {
         switch (type) {
             case 0:
-                drawStraightRoad(group);
+                drawType0Road(group, cellWidth, cellHeight, rotation);
                 break;
         }
     }
 
-    private void drawStraightRoad(Group group) {
-        double width = TILE_SIZE; // Yolun genişliği
-        double height = TILE_SIZE * 0.8; // Yolun yüksekliği (1 gridcell'e yakın)
-
-        Rectangle road = new Rectangle(x, y + (TILE_SIZE - height) / 2, width, height);
+    public void drawType0Road(Group group, double cellWidth, double cellHeight, int rotation) {
+        // Dikdörtgen çizimi
+        double roadWidth = cellWidth;
+        double roadHeight = cellHeight - 10; // Yukarıdan ve aşağıdan 5 piksel padding için
+        double roadX = x * cellWidth;
+        double roadY = y * cellHeight + 5; // Yukarıdan 5 piksel padding için
+        Rectangle road = new Rectangle(roadX, roadY, roadWidth, roadHeight);
         road.setFill(Color.web("#FEFEFE"));
-        group.getChildren().add(road);
-    }
-
-    private void drawTurnRoad(Group group) {
-        Rectangle road = new Rectangle(x, y, TILE_SIZE, TILE_SIZE);
-        road.setFill(Color.TRANSPARENT);
-        road.setStroke(Color.BLACK);
-        road.setStrokeWidth(3);
+        road.setRotate(rotation);
         group.getChildren().add(road);
 
-        // Dönüşe göre çizim
-        switch (rotation) {
-            case 0:
-                group.getChildren().add(new Line(x, y, x + TILE_SIZE, y + TILE_SIZE));
-                break;
-            case 90:
-                group.getChildren().add(new Line(x + TILE_SIZE, y, x, y + TILE_SIZE));
-                break;
-            case 180:
-                group.getChildren().add(new Line(x, y, x + TILE_SIZE, y + TILE_SIZE));
-                break;
-            case 270:
-                group.getChildren().add(new Line(x, y, x + TILE_SIZE, y + TILE_SIZE));
-                break;
-        }
     }
+
 }

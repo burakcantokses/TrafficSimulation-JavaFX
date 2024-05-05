@@ -32,15 +32,15 @@ public class TrafficSimulatorApplication extends Application {
             }
         }
 
+        // Yolları çiz
+        for (RoadTile roadTile : levelParser.roadTiles) {
+            roadTile.draw(root, cellWidth, cellHeight);
+        }
+
         // Binaları çiz
         for (Building building : levelParser.buildings) {
             root.getChildren().add(building.toNode(cellWidth, cellHeight));
         }
-
-        /*// Yolları çiz
-        for (RoadTile roadTile : levelParser.roadTiles) {
-            roadTile.draw(root);
-        }*/
 
         Scene scene = new Scene(root, levelParser.metadata.getWidth(), levelParser.metadata.getHeight());
         scene.setFill(Color.web("#9BC6DF"));
