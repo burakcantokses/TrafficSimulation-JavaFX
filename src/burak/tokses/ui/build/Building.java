@@ -62,7 +62,7 @@ public class Building {
         outerRectangle.setStroke(Color.BLACK);
 
         // Main rectangle
-        double mainX = outerX + (outerWidth - cellSize * 2) / 2; // outerRectangle'ın ortasına yerleştirildi
+        double mainX = outerX + outerWidth / 2 - cellSize; // outerRectangle'ın yatay merkezine göre hesaplandı
         double mainY = outerY + 20; // outerRectangle'ın üst kısmına yerleştirildi ve biraz aşağı indirildi
         Rectangle mainRectangle = new Rectangle(mainX, mainY, cellSize * 2, cellSize * 2);
         mainRectangle.setFill(getColor(color));
