@@ -1,7 +1,11 @@
 package burak.tokses.ui.road;
 
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.ArcTo;
+import javafx.scene.shape.LineTo;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.*;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 
@@ -23,6 +27,9 @@ public class RoadTile {
             case 0:
                 drawType0Road(group, cellWidth, cellHeight, rotation);
                 break;
+            case 1:
+                drawType1Road(group, cellWidth, cellHeight, rotation);
+                break;
             case 2:
                 drawType2Road(group, cellWidth, cellHeight, rotation);
                 break;
@@ -39,8 +46,27 @@ public class RoadTile {
         road.setFill(Color.web("#FEFEFE"));
         road.setRotate(rotation);
         group.getChildren().add(road);
-
     }
+
+
+    public void drawType1Road(Group group, double cellWidth, double cellHeight, int rotation) {
+        // Yarım daireleri çizin
+        double centerX = (x + 1) * cellWidth; // Hücrenin ortasından başlayacak şekilde X koordinatı
+        double centerY = (y + 1) * cellHeight; // Hücrenin ortasından başlayacak şekilde Y koordinatı
+        double radius = Math.min(cellWidth, cellHeight) / 2; // Hücre boyutunun minimumunu alarak yarıçapı belirleyin
+
+        // Başlangıç açısını ve açı derecesini doğru bir şekilde ayarlayın
+        double angleExtent = 90;
+
+        Arc arc = new Arc(centerX, centerY, radius, radius, rotation, angleExtent);
+        arc.setType(ArcType.OPEN);
+        arc.setStroke(Color.web("#FEFEFE"));
+        arc.setStrokeWidth(43);
+        arc.setFill(null);
+        group.getChildren().add(arc);
+    }
+
+
 
     public void drawType2Road(Group group, double cellWidth, double cellHeight, int rotation) {
         // Road'un dört kenarlarının koordinatlarını hesaplayın
