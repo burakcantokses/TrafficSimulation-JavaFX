@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="roads type 2 başarılı">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="enzor şekil yarı tamamlandı">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" afterDir="false" />
@@ -88,7 +88,7 @@
       <workItem from="1714841822068" duration="5157000" />
       <workItem from="1714911270434" duration="4757000" />
       <workItem from="1714950421890" duration="4721000" />
-      <workItem from="1715029031001" duration="2121000" />
+      <workItem from="1715029031001" duration="4784000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -186,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714954573796</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="enzor şekil yarı tamamlandı">
+      <option name="closed" value="true" />
+      <created>1715031189798</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715031189798</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +221,7 @@
     <MESSAGE value="building hatasız 5 (editli bu olmazsa 4)" />
     <MESSAGE value="roads type 0 başarılı" />
     <MESSAGE value="roads type 2 başarılı" />
-    <option name="LAST_COMMIT_MESSAGE" value="roads type 2 başarılı" />
+    <MESSAGE value="enzor şekil yarı tamamlandı" />
+    <option name="LAST_COMMIT_MESSAGE" value="enzor şekil yarı tamamlandı" />
   </component>
 </project>

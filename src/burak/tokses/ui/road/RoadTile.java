@@ -33,6 +33,9 @@ public class RoadTile {
             case 2:
                 drawType2Road(group, cellWidth, cellHeight, rotation);
                 break;
+            case 3:
+                drawType3Road(group, cellWidth, cellHeight, rotation);
+                break;
         }
     }
 
@@ -47,7 +50,6 @@ public class RoadTile {
         road.setRotate(rotation);
         group.getChildren().add(road);
     }
-
 
     public void drawType1Road(Group group, double cellWidth, double cellHeight, int rotation) {
         // Yarım daireleri çizin
@@ -66,43 +68,63 @@ public class RoadTile {
         group.getChildren().add(arc);
     }
 
-
-
     public void drawType2Road(Group group, double cellWidth, double cellHeight, int rotation) {
-        // Road'un dört kenarlarının koordinatlarını hesaplayın
-        double roadWidth = cellWidth; // Sağdan ve soldan 5 piksel padding
-        double roadHeight = cellHeight; // Yukarıdan ve aşağıdan 5 piksel padding
-        double roadX = x * cellWidth; // Sağdan 5 piksel padding
-        double roadY = y * cellHeight; // Yukarıdan 5 piksel padding
-
-        // Road'u çizin
+        //üstten ve alttan gridcell'in %10u kadar padding ver.
+        Group roadGroup;
+        double padding = 0.2;
+        double roadWidth = cellWidth;
+        double roadHeight = cellHeight - (cellHeight * padding);
+        double roadX = x * cellWidth;
+        double roadY = y * cellHeight + (cellHeight * padding/2);
         Rectangle road = new Rectangle(roadX, roadY, roadWidth, roadHeight);
         road.setFill(Color.web("#FEFEFE"));
-        road.setRotate(rotation);
-        group.getChildren().add(road);
 
-        // Road'ın köşelerine kareler ekle
-        double cornerSize = 5;
-        Rectangle topLeftCorner = new Rectangle(roadX, roadY, cornerSize, cornerSize);
-        topLeftCorner.setFill(Color.web("#9BC6DF"));
-        topLeftCorner.setRotate(rotation);
+        //kenardan ve yukarıdan gridcell'in %10u kadar padding ver.
+        double road2Width = cellWidth - (cellWidth * padding);
+        double road2Height = cellHeight;
+        double road2X = x * cellWidth + (cellWidth * padding/2);
+        double road2Y = y * cellHeight;
+        Rectangle road2 = new Rectangle(road2X, road2Y, road2Width, road2Height);
+        road2.setFill(Color.web("#FEFEFE"));
 
-        Rectangle topRightCorner = new Rectangle(roadX + roadWidth - cornerSize, roadY, cornerSize, cornerSize);
-        topRightCorner.setFill(Color.web("#9BC6DF"));
-        topRightCorner.setRotate(rotation);
 
-        Rectangle bottomLeftCorner = new Rectangle(roadX, roadY + roadHeight - cornerSize, cornerSize, cornerSize);
-        bottomLeftCorner.setFill(Color.web("#9BC6DF"));
-        bottomLeftCorner.setRotate(rotation);
-
-        Rectangle bottomRightCorner = new Rectangle(roadX + roadWidth - cornerSize, roadY + roadHeight - cornerSize, cornerSize, cornerSize);
-        bottomRightCorner.setFill(Color.web("#9BC6DF"));
-        bottomRightCorner.setRotate(rotation);
-
-        group.getChildren().addAll(topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner);
+        //road ve road2'yi birleştir.
+        roadGroup = new Group(road, road2);
+        roadGroup.setRotate(rotation);
+        group.getChildren().add(roadGroup);
 
 
     }
+
+    public void drawType3Road(Group group, double cellWidth, double cellHeight, int rotation) {
+        //üstten ve alttan gridcell'in %10u kadar padding ver.
+        Group roadGroup;
+        double padding = 0.2;
+        double roadWidth = cellWidth;
+        double roadHeight = cellHeight - (cellHeight * padding);
+        double roadX = x * cellWidth;
+        double roadY = y * cellHeight + (cellHeight * padding / 2);
+        Rectangle road = new Rectangle(roadX, roadY, roadWidth, roadHeight);
+        road.setFill(Color.web("#FEFEFE"));
+
+        // Çizgi özellikleri
+        double lineThickness = 5; // Çizginin kalınlığı road'ın gridcell ile arasında olan padding kadar
+        double lineWidth = cellWidth * 0.7; // Çizginin genişliği 1 gridcell'in %10u kadar küçük
+
+        // Alt çizgi
+        Line line = new Line(roadX + (roadWidth - lineWidth) / 2, roadY + roadHeight + lineThickness / 2, roadX + (roadWidth + lineWidth) / 2, roadY + roadHeight + lineThickness / 2);
+        line.setStrokeWidth(lineThickness);
+        line.setStroke(Color.web("#FEFEFE"));
+
+        // road ve road2'yi birleştir.
+        roadGroup = new Group(road, line);
+        roadGroup.setRotate(rotation);
+        group.getChildren().add(roadGroup);
+    }
+
+
+
+
 
 
 
