@@ -1,5 +1,6 @@
 package burak.tokses.ui.road;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_ADDPeer;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -47,62 +48,67 @@ public class RoadTile {
 
     public void drawType1Road(Group group, double cellWidth, double cellHeight, int rotation) {
         // Calculate arc properties based on grid cells
+        double additionalX = 0;
+        double additionalY = 0;
+        switch (rotation) {
+            case 0:
+                additionalX = 5;
+                break;
+            case 90:
+                additionalX = 0;
+                break;
+            case 180:
+                additionalY = 5;
+                break;
+            case 270:
+                additionalX = 5;
+                additionalY = 5;
+                break;
+        }
         double gridCellWidth = cellWidth / 2;
         double gridCellHeight = cellHeight / 2;
         double radius = 2 * gridCellWidth; // Arc radius spans four grid cells
-        double centerX = x * cellWidth; // Center at grid cell center
-        double centerY = y * cellHeight; // Center at grid cell center
+        double centerX = (x+1) * cellWidth - additionalX; // Center at grid cell center
+        double centerY = (y+1) * cellHeight - additionalY; // Center at grid cell center
 
         // Determine arc starting and ending angles based on rotation
-        double startAngle, sweepAngle;
-        switch (rotation) {
-            case 0:
-            case 90:
-                startAngle = 90;
-                sweepAngle = 180;
-                break;
-            case 180:
-                startAngle = 90;
-                sweepAngle = 180;
-                break;
-            case 270:
-                startAngle = 90;
-                sweepAngle = 180;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid rotation angle for Type 1 road");
-        }
+        double startAngle = 90, sweepAngle = 180;
 
-        // Create two Arc shapes for the semi-transparent effect
+        // Create Arc shape for the semi-transparent effect
         Arc arc1 = new Arc(centerX, centerY, radius, radius, startAngle, sweepAngle / 2); // Half sweep angle
         arc1.setType(ArcType.ROUND);
         arc1.setFill(Color.web("#FEFEFE"));
 
+        // Create a Circle shape with the same dimensions as the Rectangle
+        double circleRadius = 5; // Radius of the circle
+        Circle circle = new Circle(centerX, centerY, circleRadius);
+        circle.setFill(Color.web("#9BC6DF")); // Color of the circle
 
         // Combine shapes in a Group
-        Group roadGroup = new Group(arc1);
+        Group roadGroup = new Group(arc1, circle);
 
+        // Rotate the entire group
         switch (rotation) {
             case 0:
+                System.out.println(x + " " + y);
                 roadGroup.setRotate(90);
                 break;
             case 90:
+                System.out.println(x + " " + y);
                 roadGroup.setRotate(0);
                 break;
             case 180:
+                System.out.println(x + " " + y);
                 roadGroup.setRotate(270);
                 break;
             case 270:
+                System.out.println(x + " " + y);
                 roadGroup.setRotate(180);
                 break;
         }
 
-        // Apply rotation to the entire group
-
-
         group.getChildren().add(roadGroup);
     }
-
 
 
     public void drawType2Road(Group group, double cellWidth, double cellHeight, int rotation) {

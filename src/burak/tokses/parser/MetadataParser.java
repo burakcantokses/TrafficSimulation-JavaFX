@@ -87,6 +87,7 @@ public class MetadataParser {
         int gridX = Integer.parseInt(parts[3]);
         int gridY = Integer.parseInt(parts[4]);
         // RoadTile işleme...
+        System.out.println("RoadTile created at " + gridX + ", " + gridY + " with type " + type + " and rotation " + rotation);
         RoadTile roadTile = new RoadTile(type, rotation, gridX, gridY);
         roadTiles.add(roadTile);
     }
