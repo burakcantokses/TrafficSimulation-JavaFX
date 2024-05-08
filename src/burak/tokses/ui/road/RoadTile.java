@@ -1,13 +1,8 @@
 package burak.tokses.ui.road;
 
-import javafx.scene.shape.Path;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.ArcTo;
-import javafx.scene.shape.LineTo;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.*;
 
 public class RoadTile {
     public int type;
@@ -28,7 +23,7 @@ public class RoadTile {
                 drawType0Road(group, cellWidth, cellHeight, rotation);
                 break;
             case 1:
-                //drawType1Road(group, cellWidth, cellHeight, rotation);
+                drawType1Road(group, cellWidth, cellHeight, rotation);
                 break;
             case 2:
                 drawType2Road(group, cellWidth, cellHeight, rotation);
@@ -40,11 +35,10 @@ public class RoadTile {
     }
 
     public void drawType0Road(Group group, double cellWidth, double cellHeight, int rotation) {
-        // Dikdörtgen çizimi
         double roadWidth = cellWidth;
-        double roadHeight = cellHeight - 10; // Yukarıdan ve aşağıdan 5 piksel padding için
+        double roadHeight = cellHeight - 10;
         double roadX = x * cellWidth;
-        double roadY = y * cellHeight + 5; // Yukarıdan 5 piksel padding için
+        double roadY = y * cellHeight + 5;
         Rectangle road = new Rectangle(roadX, roadY, roadWidth, roadHeight);
         road.setFill(Color.web("#FEFEFE"));
         road.setRotate(rotation);
@@ -52,24 +46,66 @@ public class RoadTile {
     }
 
     public void drawType1Road(Group group, double cellWidth, double cellHeight, int rotation) {
-        // Yarım daireleri çizin
-        double centerX = (x + 1) * cellWidth; // Hücrenin ortasından başlayacak şekilde X koordinatı
-        double centerY = (y + 1) * cellHeight; // Hücrenin ortasından başlayacak şekilde Y koordinatı
-        double radius = Math.min(cellWidth, cellHeight) / 2; // Hücre boyutunun minimumunu alarak yarıçapı belirleyin
+        // Calculate arc properties based on grid cells
+        double gridCellWidth = cellWidth / 2;
+        double gridCellHeight = cellHeight / 2;
+        double radius = 2 * gridCellWidth; // Arc radius spans four grid cells
+        double centerX = x * cellWidth; // Center at grid cell center
+        double centerY = y * cellHeight; // Center at grid cell center
 
-        // Başlangıç açısını ve açı derecesini doğru bir şekilde ayarlayın
-        double angleExtent = 90;
+        // Determine arc starting and ending angles based on rotation
+        double startAngle, sweepAngle;
+        switch (rotation) {
+            case 0:
+            case 90:
+                startAngle = 90;
+                sweepAngle = 180;
+                break;
+            case 180:
+                startAngle = 90;
+                sweepAngle = 180;
+                break;
+            case 270:
+                startAngle = 90;
+                sweepAngle = 180;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid rotation angle for Type 1 road");
+        }
 
-        Arc arc = new Arc(centerX, centerY, radius, radius, rotation, angleExtent);
-        arc.setType(ArcType.OPEN);
-        arc.setStroke(Color.web("#FEFEFE"));
-        arc.setStrokeWidth(43);
-        arc.setFill(null);
-        group.getChildren().add(arc);
+        // Create two Arc shapes for the semi-transparent effect
+        Arc arc1 = new Arc(centerX, centerY, radius, radius, startAngle, sweepAngle / 2); // Half sweep angle
+        arc1.setType(ArcType.ROUND);
+        arc1.setFill(Color.web("#FEFEFE"));
+
+
+        // Combine shapes in a Group
+        Group roadGroup = new Group(arc1);
+
+        switch (rotation) {
+            case 0:
+                roadGroup.setRotate(90);
+                break;
+            case 90:
+                roadGroup.setRotate(0);
+                break;
+            case 180:
+                roadGroup.setRotate(270);
+                break;
+            case 270:
+                roadGroup.setRotate(180);
+                break;
+        }
+
+        // Apply rotation to the entire group
+
+
+        group.getChildren().add(roadGroup);
     }
 
+
+
     public void drawType2Road(Group group, double cellWidth, double cellHeight, int rotation) {
-        //üstten ve alttan gridcell'in %10u kadar padding ver.
         Group roadGroup;
         double padding = 0.2;
         double roadWidth = cellWidth;
@@ -79,7 +115,6 @@ public class RoadTile {
         Rectangle road = new Rectangle(roadX, roadY, roadWidth, roadHeight);
         road.setFill(Color.web("#FEFEFE"));
 
-        //kenardan ve yukarıdan gridcell'in %10u kadar padding ver.
         double road2Width = cellWidth - (cellWidth * padding);
         double road2Height = cellHeight;
         double road2X = x * cellWidth + (cellWidth * padding/2);
@@ -88,11 +123,9 @@ public class RoadTile {
         road2.setFill(Color.web("#FEFEFE"));
 
 
-        //road ve road2'yi birleştir.
         roadGroup = new Group(road, road2);
         roadGroup.setRotate(rotation);
         group.getChildren().add(roadGroup);
-
 
     }
 
