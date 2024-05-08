@@ -17,7 +17,8 @@ public class MetadataParser {
     public List<Building> buildings = new ArrayList<Building>();
     public Metadata metadata;
     public List<RoadTile> roadTiles = new ArrayList<RoadTile>();
-    public TrafficLight trafficLight;
+    public List<TrafficLight> trafficLights = new ArrayList<TrafficLight>();
+    public List<Path> paths = new ArrayList<Path>();
     public Path path;
 
     public void parseFile(String metadataFile) {
@@ -87,7 +88,6 @@ public class MetadataParser {
         int gridX = Integer.parseInt(parts[3]);
         int gridY = Integer.parseInt(parts[4]);
         // RoadTile işleme...
-        System.out.println("RoadTile created at " + gridX + ", " + gridY + " with type " + type + " and rotation " + rotation);
         RoadTile roadTile = new RoadTile(type, rotation, gridX, gridY);
         roadTiles.add(roadTile);
     }
@@ -99,7 +99,8 @@ public class MetadataParser {
         double y2 = Double.parseDouble(parts[4]);
         String color = "red"; // Başlangıçta trafik ışığı kırmızı olarak ayarlanır
         // TrafficLight işleme...
-        trafficLight = new TrafficLight(x1, y1, x2, y2, color);
+        TrafficLight trafficLight = new TrafficLight(x1, y1, x2, y2, color);
+        trafficLights.add(trafficLight);
     }
 
     public void parsePath(String[] parts) {

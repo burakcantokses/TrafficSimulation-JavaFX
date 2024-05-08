@@ -94,7 +94,6 @@ public class Building {
                 group.getTransforms().add(new Rotate(90, outerX + outerWidth / 2, outerY + outerHeight / 2));
                 break;
         }
-        System.out.println("Building created at " + x + ", " + y + " with rotation " + rotation + " and color " + color);
         return group;
     }
 

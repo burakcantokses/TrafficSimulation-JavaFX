@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="road hataları giderildi tip 3">
-      <change afterPath="$PROJECT_DIR$/level1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/level2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/level3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/level4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/level5.txt" afterDir="false" />
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="level 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +99,7 @@
       <workItem from="1714950421890" duration="4721000" />
       <workItem from="1715029031001" duration="8668000" />
       <workItem from="1715167338358" duration="1086000" />
-      <workItem from="1715193648569" duration="10423000" />
+      <workItem from="1715193648569" duration="11743000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -256,7 +253,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715206582029</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="level system">
+      <option name="closed" value="true" />
+      <created>1715206964485</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715206964485</updated>
+    </task>
+    <task id="LOCAL-00021" summary="level 1">
+      <option name="closed" value="true" />
+      <created>1715207001541</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715207001541</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +304,8 @@
     <MESSAGE value="en çok ilerlenen bu" />
     <MESSAGE value="sktmez" />
     <MESSAGE value="road hataları giderildi tip 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="road hataları giderildi tip 3" />
+    <MESSAGE value="level system" />
+    <MESSAGE value="level 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="level 1" />
   </component>
 </project>

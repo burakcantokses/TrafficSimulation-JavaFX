@@ -1,6 +1,7 @@
 import burak.tokses.parser.MetadataParser;
 import burak.tokses.ui.build.Building;
 import burak.tokses.ui.road.RoadTile;
+import burak.tokses.ui.traffic.TrafficLight;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -12,7 +13,7 @@ public class TrafficSimulatorApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        int level = 1;
+        int level = 3;
         String levelFile = "level" + level + ".txt";
         MetadataParser levelParser = new MetadataParser();
         levelParser.parseFile(levelFile);
@@ -42,6 +43,11 @@ public class TrafficSimulatorApplication extends Application {
         // Binaları çiz
         for (Building building : levelParser.buildings) {
             root.getChildren().add(building.toNode(cellWidth, cellHeight));
+        }
+
+        // Trafik ışıklarını çiz
+        for (TrafficLight trafficLight : levelParser.trafficLights) {
+            trafficLight.draw(root, cellWidth);
         }
 
         Scene scene = new Scene(root, levelParser.metadata.getWidth(), levelParser.metadata.getHeight());
