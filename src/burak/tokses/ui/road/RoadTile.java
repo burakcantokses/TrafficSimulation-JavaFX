@@ -50,26 +50,24 @@ public class RoadTile {
         // Calculate arc properties based on grid cells
         double additionalX = 0;
         double additionalY = 0;
+        double padding = 0.1; // %10 padding
         switch (rotation) {
             case 0:
-                additionalX = 5;
-                break;
-            case 90:
-                additionalX = 0;
+                additionalX = -10;
                 break;
             case 180:
-                additionalY = 5;
+                additionalY = -10;
                 break;
             case 270:
-                additionalX = 5;
-                additionalY = 5;
+                additionalX = -10;
+                additionalY = -10;
                 break;
         }
         double gridCellWidth = cellWidth / 2;
         double gridCellHeight = cellHeight / 2;
-        double radius = 2 * gridCellWidth; // Arc radius spans four grid cells
-        double centerX = (x+1) * cellWidth - additionalX; // Center at grid cell center
-        double centerY = (y+1) * cellHeight - additionalY; // Center at grid cell center
+        double radius = (2 * gridCellWidth) * (1 - padding); // Arc radius spans four grid cells with padding
+        double centerX = (x+1) * cellWidth + additionalX; // Center at grid cell center with additional padding
+        double centerY = (y+1) * cellHeight + additionalY; // Center at grid cell center with additional padding
 
         // Determine arc starting and ending angles based on rotation
         double startAngle = 90, sweepAngle = 180;
@@ -90,26 +88,21 @@ public class RoadTile {
         // Rotate the entire group
         switch (rotation) {
             case 0:
-                System.out.println(x + " " + y);
                 roadGroup.setRotate(90);
                 break;
             case 90:
-                System.out.println(x + " " + y);
                 roadGroup.setRotate(0);
                 break;
             case 180:
-                System.out.println(x + " " + y);
                 roadGroup.setRotate(270);
                 break;
             case 270:
-                System.out.println(x + " " + y);
                 roadGroup.setRotate(180);
                 break;
         }
 
         group.getChildren().add(roadGroup);
     }
-
 
     public void drawType2Road(Group group, double cellWidth, double cellHeight, int rotation) {
         Group roadGroup;
