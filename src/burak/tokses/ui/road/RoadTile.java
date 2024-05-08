@@ -129,45 +129,62 @@ public class RoadTile {
     }
 
     public void drawType3Road(Group group, double cellWidth, double cellHeight, int rotation) {
-        // Calculate margins
-        double padding = 0.1 * cellWidth; // 10% of cell width
 
-        // Rectangle 1: Full width, with top and bottom margins
-        double rect1Width = cellWidth;
-        double rect1Height = cellHeight - 2 * padding; // Subtract margins from height
-        double rect1X = x * cellWidth;
-        double rect1Y = y * cellHeight + padding; // Add top margin
+        // Calculate margins based on cell size
+        double margin = cellWidth * 0.1; // 10% of cell width
 
-        Rectangle rect1 = new Rectangle(rect1X, rect1Y, rect1Width, rect1Height);
+        // Define rectangle properties based on margins
+        double rect1Height = cellHeight - 2 * margin;
+
+        // Calculate base positions for rectangles
+        double baseX = x * cellWidth;
+        double baseY = y * cellHeight;
+
+        // Create rectangles with calculated properties
+        Rectangle rect1 = new Rectangle(baseX, baseY + margin, cellWidth, rect1Height);
         rect1.setFill(Color.web("#FEFEFE"));
 
-        // Rectangle 2: Smaller width, with top, right, and left margins
-        double rect2Width = cellWidth - 2 * padding;
-        double rect2Height = cellHeight - padding; // Only top margin
-        double rect2X = x * cellWidth + padding; // Add left margin
-        double rect2Y = y * cellHeight; // No adjustment for default rotation
-        if (rotation == 0) {
-            rect2Y += padding;
-        }
-        Rectangle rect2 = new Rectangle(rect2X, rect2Y, rect2Width, rect2Height);
-        rect2.setFill(Color.web("#FEFEFE"));
-
-
-        // Add rectangles to the group
-        Group roadGroup = new Group(rect1, rect2);
-
-        if (rotation == 0) {
-            rotation = 180;
-        }
-        if (rotation == 180) {
-            rotation = 0;
+        // Add line based on rotation degree
+        Line line = null;
+        switch (rotation) {
+            case 0:
+                line = new Line(baseX, baseY + cellHeight - margin, baseX + cellWidth, baseY + cellHeight - margin);
+                break;
+            case 90:
+                line = new Line(baseX + margin, baseY, baseX + margin, baseY + cellHeight);
+                break;
+            case 180:
+                line = new Line(baseX, baseY + margin, baseX + cellWidth, baseY + margin);
+                break;
+            case 270:
+                line = new Line(baseX + cellWidth - margin, baseY, baseX + cellWidth - margin, baseY + cellHeight);
+                break;
+            default:
+                // Invalid rotation degree
+                break;
         }
 
-        // Apply rotation
-        roadGroup.setRotate(rotation);
+        // Set line thickness
+        assert line != null;
+        double lineLength = margin*1.8;
+        double lineThickness = margin*1.8;
+        line.setStrokeWidth(lineThickness);
+        line.setStroke(Color.web("#FEFEFE"));
+        if (rotation == 90 || rotation == 270) {
+            line.setStartY(line.getStartY() + lineLength);
+            line.setEndY(line.getEndY() - lineLength);
+        } else {
+            line.setStartX(line.getStartX() + lineLength);
+            line.setEndX(line.getEndX() - lineLength);
+        }
+
+        rect1.setRotate(rotation);
+        // Combine rectangles and line in a Group
+        Group roadGroup = new Group(rect1, line);
 
         group.getChildren().add(roadGroup);
     }
+
 
 
 
