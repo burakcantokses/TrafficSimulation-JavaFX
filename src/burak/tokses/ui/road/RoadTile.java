@@ -4,12 +4,23 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 
+/**
+ * Represents a road tile that can be drawn on the game grid.
+ * Different types of road tiles are supported, each with its own drawing logic.
+ */
 public class RoadTile {
     private int type;
     private int rotation;
     private double x;
     private double y;
 
+    /**
+     * Constructs a road tile with the specified parameters.
+     * @param type The type of road tile.
+     * @param rotation The rotation angle of the road tile.
+     * @param x The x-coordinate of the road tile.
+     * @param y The y-coordinate of the road tile.
+     */
     public RoadTile(int type, int rotation, double x, double y) {
         this.type = type;
         this.rotation = rotation;
@@ -17,6 +28,12 @@ public class RoadTile {
         this.y = y;
     }
 
+    /**
+     * Draws the road tile on the specified group.
+     * @param group The group to which the road tile shapes will be added.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     */
     public void draw(Group group, double cellWidth, double cellHeight) {
         switch (type) {
             case 0:
@@ -33,19 +50,44 @@ public class RoadTile {
                 break;
         }
     }
+
+    /**
+     * Draws a type 0 road tile.
+     * @param group The group to which the road tile shape will be added.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param rotation The rotation angle of the road tile.
+     */
     public void drawType0Road(Group group, double cellWidth, double cellHeight, int rotation) {
+        // Define road rectangle properties
         double roadWidth = cellWidth;
         double roadHeight = cellHeight - 10;
         double roadX = x * cellWidth;
         double roadY = y * cellHeight + 5;
+
+        // Create and style the road rectangle
         Rectangle road = new Rectangle(roadX, roadY, roadWidth, roadHeight);
         road.setFill(Color.web("#FEFEFE"));
         road.setRotate(rotation);
+
+        // Add the road rectangle to the group
         group.getChildren().add(road);
     }
 
+    /**
+     * Draws a type 1 road tile.
+     * @param group The group to which the road tile shape will be added.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param rotation The rotation angle of the road tile.
+     */
     public void drawType1Road(Group group, double cellWidth, double cellHeight, int rotation) {
         // Calculate arc properties based on grid cells
+        // Additional adjustments are made based on rotation
+        // Create and style the arc shape for the road tile
+        // Create a circle shape to represent the junction
+        // Combine the shapes in a group and apply rotation
+        // Add the group to the main group
         double additionalX = 0;
         double additionalY = 0;
         double padding = 0.1; // %10 padding
@@ -102,7 +144,19 @@ public class RoadTile {
         group.getChildren().add(roadGroup);
     }
 
+    /**
+     * Draws a type 2 road tile.
+     * @param group The group to which the road tile shape will be added.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param rotation The rotation angle of the road tile.
+     */
     public void drawType2Road(Group group, double cellWidth, double cellHeight, int rotation) {
+        // Define road rectangle properties
+        // Additional adjustments are made based on rotation
+        // Create and style the road rectangles
+        // Combine the rectangles in a group and apply rotation
+        // Add the group to the main group
         Group roadGroup;
         double padding = 0.2;
         double roadWidth = cellWidth;
@@ -125,10 +179,23 @@ public class RoadTile {
         group.getChildren().add(roadGroup);
 
     }
-
+    /**
+     * Draws a type 3 road tile.
+     * @param group The group to which the road tile shape will be added.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param rotation The rotation angle of the road tile.
+     */
     public void drawType3Road(Group group, double cellWidth, double cellHeight, int rotation) {
-
         // Calculate margins based on cell size
+        // Define rectangle properties based on margins
+        // Calculate base positions for rectangles
+        // Create rectangles with calculated properties
+        // Create a line based on rotation degree
+        // Set line thickness and color
+        // Adjust line position based on rotation
+        // Combine rectangles and line in a group
+        // Add the group to the main group
         double margin = cellWidth * 0.1; // 10% of cell width
 
         // Define rectangle properties based on margins
@@ -184,18 +251,34 @@ public class RoadTile {
     }
 
 
+    /**
+     * Retrieves the type of the road tile.
+     * @return The type of the road tile.
+     */
     public int getType() {
         return type;
     }
 
+    /**
+     * Retrieves the rotation angle of the road tile.
+     * @return The rotation angle of the road tile.
+     */
     public int getRotation() {
         return rotation;
     }
 
+    /**
+     * Retrieves the x-coordinate of the road tile.
+     * @return The x-coordinate of the road tile.
+     */
     public double getX() {
         return x;
     }
 
+    /**
+     * Retrieves the y-coordinate of the road tile.
+     * @return The y-coordinate of the road tile.
+     */
     public double getY() {
         return y;
     }

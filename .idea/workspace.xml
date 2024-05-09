@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="180 ve 0 derece çok doğru">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="refactored">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715245856223</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="refactored">
+      <option name="closed" value="true" />
+      <created>1715251519630</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715251519630</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +362,7 @@
     <MESSAGE value="car created" />
     <MESSAGE value="buildtype0" />
     <MESSAGE value="180 ve 0 derece çok doğru" />
-    <option name="LAST_COMMIT_MESSAGE" value="180 ve 0 derece çok doğru" />
+    <MESSAGE value="refactored" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored" />
   </component>
 </project>

@@ -11,6 +11,9 @@ import javafx.scene.transform.Rotate;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Represents a building in the simulation environment.
+ */
 public class Building {
     private int type;
     private int rotation;
@@ -18,6 +21,7 @@ public class Building {
     private int x;
     private int y;
 
+    // Colors for building elements
     private static final List<Color> COLORS = Arrays.asList(
             Color.web("#FECB9B"),
             Color.web("#90E4BE"),
@@ -34,6 +38,14 @@ public class Building {
             Color.BLACK
     );
 
+    /**
+     * Constructs a building with the specified parameters.
+     * @param type The type of the building.
+     * @param rotation The rotation angle of the building.
+     * @param color The color index of the building.
+     * @param x The x-coordinate of the building.
+     * @param y The y-coordinate of the building.
+     */
     public Building(int type, int rotation, int color, int x, int y) {
         this.type = type;
         this.rotation = rotation;
@@ -42,6 +54,12 @@ public class Building {
         this.y = y;
     }
 
+    /**
+     * Converts the building into a JavaFX Node.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @return The JavaFX Node representing the building.
+     */
     public Node toNode(double cellWidth, double cellHeight) {
         switch (type) {
             case 0:
@@ -55,6 +73,16 @@ public class Building {
         }
     }
 
+    /**
+     * Creates a type 0 building node.
+     * @param x The x-coordinate of the building.
+     * @param y The y-coordinate of the building.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param rotation The rotation angle of the building.
+     * @param color The color index of the building.
+     * @return The JavaFX Node representing the type 0 building.
+     */
     public Group createType0Building(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
         // Outer rectangle
         int additionalX = rotation == 90 ? 3 : 0;
@@ -110,6 +138,16 @@ public class Building {
         return group;
     }
 
+    /**
+     * Creates a type 1 building node.
+     * @param x The x-coordinate of the building.
+     * @param y The y-coordinate of the building.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param rotation The rotation angle of the building.
+     * @param color The color index of the building.
+     * @return The JavaFX Node representing the type 1 building.
+     */
     public Group createType1Building(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
         // Outer rectangle
         int additionalX = rotation == 90 ? 3 : 0;
@@ -158,7 +196,15 @@ public class Building {
 
         return group;
     }
-
+    /**
+     * Creates a type 2 building node.
+     * @param x The x-coordinate of the building.
+     * @param y The y-coordinate of the building.
+     * @param cellWidth The width of a grid cell.
+     * @param cellHeight The height of a grid cell.
+     * @param color The color index of the building.
+     * @return The JavaFX Node representing the type 2 building.
+     */
     public Rectangle createType2Building(int x, int y, double cellWidth, double cellHeight, int color) {
         // Create a rectangle
         Rectangle rectangle = new Rectangle(x * cellWidth, y * cellHeight, cellWidth, cellHeight);
@@ -176,14 +222,25 @@ public class Building {
         return rectangle;
     }
 
+    /**
+     * Retrieves the color based on the color index.
+     * @param colorIndex The color index.
+     * @return The color corresponding to the index.
+     */
     private Color getColor(int colorIndex) {
         return COLORS.get(colorIndex);
     }
 
+    /**
+     * Retrieves the stroke color based on the color index.
+     * @param colorIndex The color index.
+     * @return The stroke color corresponding to the index.
+     */
     private Color getStrokeColor(int colorIndex) {
         return STROKE_COLORS.get(colorIndex);
     }
 
+    // Getters for building properties
     public int getType() {
         return type;
     }

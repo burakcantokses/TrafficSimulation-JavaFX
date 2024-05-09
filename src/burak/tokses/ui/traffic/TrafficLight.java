@@ -5,11 +5,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
-// TrafficLight
-//TrafficLight is a shape that consists of a line and a circle. In the input file the start and end posi
-//tions to draw the line will be given. The circle needs to be at the center point of the line. Traffic
-//Light should also be able to change color when it’s clicked. Red and green are the two color op
-//tions.
+/**
+ * Represents a traffic light, consisting of a line and a circle.
+ * The position of the line is defined by its start and end points.
+ * The circle is positioned at the center of the line.
+ * The traffic light can change color when clicked, toggling between red and green.
+ */
 public class TrafficLight {
     public double x1;
     public double y1;
@@ -17,6 +18,14 @@ public class TrafficLight {
     public double y2;
     public String color;
 
+    /**
+     * Constructs a traffic light with the specified parameters.
+     * @param x1 The x-coordinate of the start point of the line.
+     * @param y1 The y-coordinate of the start point of the line.
+     * @param x2 The x-coordinate of the end point of the line.
+     * @param y2 The y-coordinate of the end point of the line.
+     * @param color The initial color of the traffic light (either "RED" or "GREEN").
+     */
     public TrafficLight(double x1, double y1, double x2, double y2, String color) {
         this.x1 = x1;
         this.y1 = y1;
@@ -25,6 +34,11 @@ public class TrafficLight {
         this.color = color;
     }
 
+    /**
+     * Draws the traffic light on the specified group.
+     * @param group The group to which the traffic light shapes will be added.
+     * @param cellWidth The width of a grid cell, used to calculate the circle's radius.
+     */
     public void draw(Group group, double cellWidth) {
         // Calculate the center point of the line
         double centerX = (x1 + x2) / 2;
@@ -55,6 +69,10 @@ public class TrafficLight {
         });
     }
 
+    /**
+     * Checks if the traffic light is currently red.
+     * @return True if the traffic light is red, otherwise false.
+     */
     public boolean isRed() {
         return color.equals("RED");
     }

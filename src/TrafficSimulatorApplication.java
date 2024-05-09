@@ -10,35 +10,65 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * A JavaFX application for simulating traffic behavior on a grid-based road network.
+ */
 public class TrafficSimulatorApplication extends Application {
 
+    /** File format for level configuration files. */
     private static final String LEVEL_FILE_FORMAT = "level%d.txt";
+
+    /** Text format for displaying allowed crashes in the game. */
     private static final String ALLOWED_CRASHES_TEXT = "Allowed Crashes: %d";
+
+    /** Text format for displaying the number of cars needed to win the game. */
     private static final String CARS_TO_WIN_TEXT = "Cars to Win: %d";
 
+    /**
+     * Starts the traffic simulator application.
+     * @param primaryStage The primary stage for the application.
+     */
     @Override
     public void start(Stage primaryStage) {
+        // Level to be loaded
         int level = 5;
         String levelFile = String.format(LEVEL_FILE_FORMAT, level);
         LevelParser levelParser = new LevelParser();
         levelParser.parseFile(levelFile);
 
+        // Root group for holding all graphical elements
         Group root = new Group();
 
+        // Draw grid lines
         drawGrid(root, levelParser);
+
+        // Display game information
         displayGameInfo(root, levelParser);
 
+        // Draw roads
         drawRoads(root, levelParser);
+
+        // Draw buildings
         drawBuildings(root, levelParser);
+
+        // Draw traffic lights
         drawTrafficLights(root, levelParser);
 
+        // Create scene and set background color
         Scene scene = new Scene(root, levelParser.getMetadata().getWidth(), levelParser.getMetadata().getHeight());
         scene.setFill(Color.web("#9BC6DF"));
+
+        // Set stage title and scene
         primaryStage.setTitle("Traffic Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
+    /**
+     * Draws grid lines on the scene based on the level metadata.
+     * @param root The root group for adding grid lines.
+     * @param levelParser The parser containing level metadata.
+     */
     private void drawGrid(Group root, LevelParser levelParser) {
         int gridX = levelParser.getMetadata().getGridX();
         int gridY = levelParser.getMetadata().getGridY();
@@ -55,29 +85,53 @@ public class TrafficSimulatorApplication extends Application {
         }
     }
 
+    /**
+     * Displays game information such as allowed crashes and cars needed to win.
+     * @param root The root group for adding text elements.
+     * @param levelParser The parser containing level metadata.
+     */
     private void displayGameInfo(Group root, LevelParser levelParser) {
         root.getChildren().add(new Text(10, 20, String.format(ALLOWED_CRASHES_TEXT, levelParser.getMetadata().getAllowedCrashes())));
         root.getChildren().add(new Text(10, 40, String.format(CARS_TO_WIN_TEXT, levelParser.getMetadata().getCarsToWin())));
     }
 
+    /**
+     * Draws road tiles on the scene based on the level configuration.
+     * @param root The root group for adding road tiles.
+     * @param levelParser The parser containing level metadata and road tiles.
+     */
     private void drawRoads(Group root, LevelParser levelParser) {
         for (RoadTile roadTile : levelParser.getRoadTiles()) {
             roadTile.draw(root, levelParser.getMetadata().getWidth() / levelParser.getMetadata().getGridX(), levelParser.getMetadata().getHeight() / levelParser.getMetadata().getGridY());
         }
     }
 
+    /**
+     * Draws buildings on the scene based on the level configuration.
+     * @param root The root group for adding buildings.
+     * @param levelParser The parser containing level metadata and buildings.
+     */
     private void drawBuildings(Group root, LevelParser levelParser) {
         for (Building building : levelParser.getBuildings()) {
             root.getChildren().add(building.toNode(levelParser.getMetadata().getWidth() / levelParser.getMetadata().getGridX(), levelParser.getMetadata().getHeight() / levelParser.getMetadata().getGridY()));
         }
     }
 
+    /**
+     * Draws traffic lights on the scene based on the level configuration.
+     * @param root The root group for adding traffic lights.
+     * @param levelParser The parser containing level metadata and traffic lights.
+     */
     private void drawTrafficLights(Group root, LevelParser levelParser) {
         for (TrafficLight trafficLight : levelParser.getTrafficLights()) {
             trafficLight.draw(root, levelParser.getMetadata().getWidth() / levelParser.getMetadata().getGridX());
         }
     }
 
+    /**
+     * Main method to launch the application.
+     * @param args Command-line arguments.
+     */
     public static void main(String[] args) {
         launch(args);
     }
