@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="refactored">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="added comment lines">
+      <change afterPath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/LevelParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/road/RoadTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="car" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,11 +45,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.TrafficSimulatorApplication.executor": "Debug",
+    "Application.TrafficSimulatorApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "car-test",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -112,6 +110,7 @@
       <workItem from="1715212774797" duration="3437000" />
       <workItem from="1715216239842" duration="2000" />
       <workItem from="1715244331841" duration="2842000" />
+      <workItem from="1715282917739" duration="3473000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -321,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715251519630</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added comment lines">
+      <option name="closed" value="true" />
+      <created>1715252036627</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715252036627</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +370,7 @@
     <MESSAGE value="buildtype0" />
     <MESSAGE value="180 ve 0 derece çok doğru" />
     <MESSAGE value="refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored" />
+    <MESSAGE value="added comment lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comment lines" />
   </component>
 </project>

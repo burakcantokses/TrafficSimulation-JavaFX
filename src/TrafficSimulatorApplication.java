@@ -1,3 +1,4 @@
+import burak.tokses.game.Game;
 import burak.tokses.parser.LevelParser;
 import burak.tokses.ui.build.Building;
 import burak.tokses.ui.road.RoadTile;
@@ -31,7 +32,7 @@ public class TrafficSimulatorApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Level to be loaded
-        int level = 5;
+        int level = 1;
         String levelFile = String.format(LEVEL_FILE_FORMAT, level);
         LevelParser levelParser = new LevelParser();
         levelParser.parseFile(levelFile);
@@ -53,6 +54,9 @@ public class TrafficSimulatorApplication extends Application {
 
         // Draw traffic lights
         drawTrafficLights(root, levelParser);
+
+        // Start the simulation
+        startSimulation(root, levelParser);
 
         // Create scene and set background color
         Scene scene = new Scene(root, levelParser.getMetadata().getWidth(), levelParser.getMetadata().getHeight());
@@ -128,6 +132,15 @@ public class TrafficSimulatorApplication extends Application {
         }
     }
 
+    /**
+     * Starts the simulation with the specified root group and level parser.
+     * @param root
+     * @param levelParser
+     */
+    private void startSimulation(Group root, LevelParser levelParser) {
+        Game game = new Game(levelParser.getPaths(), root);
+        game.spawnCar();
+    }
     /**
      * Main method to launch the application.
      * @param args Command-line arguments.
