@@ -139,7 +139,7 @@ public class TrafficSimulatorApplication extends Application {
      */
     private void startSimulation(Group root, LevelParser levelParser) {
         Game game = new Game(levelParser.getPaths(), root);
-        game.spawnCar();
+        game.createTraffic();
     }
     /**
      * Main method to launch the application.
