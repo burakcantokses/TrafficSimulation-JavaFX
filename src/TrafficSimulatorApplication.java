@@ -17,7 +17,7 @@ public class TrafficSimulatorApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        int level = 1;
+        int level = 0;
         String levelFile = "level" + level + ".txt";
         MetadataParser levelParser = new MetadataParser();
         levelParser.parseFile(levelFile);

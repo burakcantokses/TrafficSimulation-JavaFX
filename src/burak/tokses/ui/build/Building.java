@@ -50,48 +50,51 @@ public class Building {
 
     public Group createType0Building(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
         // Outer rectangle
-        double outerWidth = cellWidth * 2.3;
-        double outerHeight = cellHeight * 3.3;
-        double outerX = x * cellWidth - 5;
-        double outerY = y * cellHeight - 10;
+        double outerWidth = cellWidth * 2;
+        double outerHeight = cellHeight * 3;
+        double outerX = x * cellWidth; // Subtract 1 from x before multiplying by cellWidth
+        double outerY = y * cellHeight;
         Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
         outerRectangle.setArcWidth(12);
         outerRectangle.setArcHeight(12);
         outerRectangle.setFill(Color.web("#EFF9FE"));
         outerRectangle.setStroke(Color.BLACK);
+        outerRectangle.setStrokeWidth(2);
+        outerRectangle.setStrokeType(StrokeType.OUTSIDE);
 
         // Main rectangle
-        double mainX = outerX + outerWidth / 2 - cellWidth; // outerRectangle'ın yatay merkezine göre hesaplandı
-        double mainY = outerY + 20; // outerRectangle'ın üst kısmına yerleştirildi ve biraz aşağı indirildi
-        Rectangle mainRectangle = new Rectangle(mainX, mainY, cellWidth * 2, cellHeight * 2);
+        double mainX = outerX + outerWidth / 1.75 - cellWidth; // outerRectangle'ın yatay merkezine göre hesaplandı
+        double mainY = outerY + 10; // outerRectangle'ın üst kısmına yerleştirildi ve biraz aşağı indirildi
+        Rectangle mainRectangle = new Rectangle(mainX, mainY, cellWidth * 1.7, cellHeight * 1.7);
         mainRectangle.setFill(getColor(color));
         mainRectangle.setStroke(getStrokeColor(color));
+        mainRectangle.setStrokeType(StrokeType.CENTERED);
         mainRectangle.setStrokeWidth(5);
         mainRectangle.setArcWidth(12);
         mainRectangle.setArcHeight(12);
 
         // Inner rectangle
-        double innerSize = cellWidth * 2 * 0.8;
-        double innerX = mainX + (cellWidth * 2 - innerSize) / 2;
-        double innerY = mainY + (cellHeight * 2 - innerSize) / 2;
+        double innerSize = cellWidth * 1.7 * 0.8;
+        double innerX = mainX + (cellWidth * 1.7 - innerSize) / 2;
+        double innerY = mainY + (cellHeight * 1.7 - innerSize) / 2;
         Rectangle innerRectangle = new Rectangle(innerX, innerY, innerSize, innerSize);
         innerRectangle.setFill(getColor(color));
         innerRectangle.setArcWidth(10);
         innerRectangle.setArcHeight(10);
         innerRectangle.setStroke(getStrokeColor(color));
         innerRectangle.setStrokeWidth(5);
+        //rotatede kaymalar meydana geliyor.
 
-        // Create a group to hold all rectangles
         Group group = new Group(outerRectangle, mainRectangle, innerRectangle);
         switch (rotation) {
             case 90:
-                group.getTransforms().add(new Rotate(270, outerX + outerWidth / 2, outerY + outerHeight / 2));
+                group.getTransforms().add(new Rotate(270, outerX, outerY + outerHeight));
                 break;
             case 180:
-                group.getTransforms().add(new Rotate(180, outerX + outerWidth / 2, outerY + outerHeight / 2));
+                    group.setRotate(180);
                 break;
             case 270:
-                group.getTransforms().add(new Rotate(90, outerX + outerWidth / 2, outerY + outerHeight / 2));
+                group.getTransforms().add(new Rotate(90, outerX, outerY + outerHeight));
                 break;
         }
         return group;
