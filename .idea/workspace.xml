@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="car created success">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="en yakın bu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" afterDir="false" />
     </list>
@@ -110,7 +109,7 @@
       <workItem from="1715212774797" duration="3437000" />
       <workItem from="1715216239842" duration="2000" />
       <workItem from="1715244331841" duration="2842000" />
-      <workItem from="1715282917739" duration="4230000" />
+      <workItem from="1715282917739" duration="4593000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -336,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715286431776</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="en yakın bu">
+      <option name="closed" value="true" />
+      <created>1715287214763</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715287214763</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +361,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="node" />
     <MESSAGE value="building hatasız" />
     <MESSAGE value="building hatasız 2" />
     <MESSAGE value="building hatasız 3" />
@@ -379,6 +385,7 @@
     <MESSAGE value="refactored" />
     <MESSAGE value="added comment lines" />
     <MESSAGE value="car created success" />
-    <option name="LAST_COMMIT_MESSAGE" value="car created success" />
+    <MESSAGE value="en yakın bu" />
+    <option name="LAST_COMMIT_MESSAGE" value="en yakın bu" />
   </component>
 </project>

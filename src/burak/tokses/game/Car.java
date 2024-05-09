@@ -69,6 +69,10 @@ public class Car {
         return currentPointIndex < path.getPoints().size();
     }
 
+    public boolean hasReachedDestination() {
+        return currentPointIndex >= path.getPoints().size() - 1;
+    }
+
     public void stop() {
         speed = 0;
     }

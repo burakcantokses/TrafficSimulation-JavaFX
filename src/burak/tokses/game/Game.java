@@ -33,11 +33,22 @@ public class Game {
         time += 0.16; // Adjust this value as needed
 
         // Move each car
+        List<Car> carsToRemove = new ArrayList<>();
         for (Car car : cars) {
             // Check if the car is still on the path
             if (car.isOnPath()) {
                 car.move();
             }
+            // Check if the car has reached its destination
+            if (car.hasReachedDestination()) {
+                carsToRemove.add(car);
+            }
+        }
+
+        // Remove cars that have reached their destination
+        cars.removeAll(carsToRemove);
+        for (Car car : carsToRemove) {
+            root.getChildren().remove(car.getShape());
         }
 
         // Spawn a new car at less frequent intervals
@@ -48,6 +59,7 @@ public class Game {
             time = 0;
         }
     }
+
 
     public void spawnCar() {
         // Choose a random path
@@ -61,7 +73,7 @@ public class Game {
         // Define car properties
         double width = 20;
         double height = 10;
-        double speed = 1;
+        double speed = 0.5;
         double acceleration = 0.2; // Adjust as needed
         double maxSpeed = 1; // Adjust as needed
 
