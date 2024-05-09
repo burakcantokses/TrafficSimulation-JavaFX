@@ -5,46 +5,53 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Car {
-    private double x;
-    private double y;
-    private double speed;
-    private Path path;
-    private double width;
-    private double height;
-    private String state;
+import java.awt.*;
 
-    public Car(double x, double y, double speed, Path path, double cellWidth, double cellHeight) {
+public class Car {
+    public double x;
+    public double y;
+    public double speed;
+    public double width;
+    public double height;
+    public Path path;
+    public boolean isCrashed;
+    public String status;
+
+    public Car(double x, double y, double speed, double width, double height, Path path) {
         this.x = x;
         this.y = y;
         this.speed = speed;
+        this.width = width;
+        this.height = height;
         this.path = path;
-        this.width = cellWidth; // Set the width of the car as 1/5 of the cell width
-        this.height = cellHeight; // Set the height of the car as 1/4 of the cell height
-        this.state = "MOVING";
+        this.isCrashed = false;
+        this.status = "Moving";
     }
 
     public void move() {
-        if (this.state.equals("MOVING")) {
-            // Implement the logic to move the car along the path
+        if (status.equals("Moving")) {
+            x += speed;
         }
     }
 
     public void stop() {
-        this.state = "STOPPED";
+        status = "Stopped";
     }
 
-    public void resume() {
-        this.state = "MOVING";
+    public void crash() {
+        isCrashed = true;
+        status = "Crashed";
     }
 
-    public String getState() {
-        return state;
+    public void repair() {
+        isCrashed = false;
+        status = "Moving";
     }
 
     public void draw(Group root) {
-        Rectangle carShape = new Rectangle(x, y, width, height);
+        javafx.scene.shape.Rectangle carShape = new Rectangle(x, y, width, height);
         carShape.setFill(Color.BLUE);
         root.getChildren().add(carShape);
     }
+
 }

@@ -78,13 +78,13 @@ public class TrafficSimulatorApplication extends Application {
                 double speed = 0.5; // Set the speed of the car
                 double width = cellWidth * 0.2; // Set the width of the car
                 double height = cellHeight * 0.4; // Set the height of the car
-                Car car = new Car(x, y, speed, path, width, height);
+                Car car = new Car(x, y, speed, width, height, path);
                 System.out.println("Created car at (" + x + ", " + y + ") with size (" + width + ", " + height + ")");
                 carManager.addCar(car, root);
             }
         }
         // Start the CarManager
-        carManager.start();
+        //carManager.start();
 
         Scene scene = new Scene(root, levelParser.metadata.getWidth(), levelParser.metadata.getHeight());
         scene.setFill(Color.web("#9BC6DF"));

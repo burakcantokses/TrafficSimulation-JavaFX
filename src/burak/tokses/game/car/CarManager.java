@@ -18,20 +18,16 @@ public class CarManager {
     public void addCar(Car car, Group root) {
         cars.add(car);
         car.draw(root);
-        // Add the car to the root group
     }
 
     public void start() {
         for (Car car : cars) {
-            // Check if the car is at a red light
+            car.move();
             for (TrafficLight trafficLight : trafficLights) {
-                if (trafficLight.isRed() && carIsAtTrafficLight(car, trafficLight)) {
+                if (carIsAtTrafficLight(car, trafficLight)) {
                     car.stop();
-                } else {
-                    car.resume();
                 }
             }
-            car.move();
         }
     }
 
