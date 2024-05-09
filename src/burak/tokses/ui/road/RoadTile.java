@@ -1,15 +1,14 @@
 package burak.tokses.ui.road;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_ADDPeer;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 
 public class RoadTile {
-    public int type;
-    public int rotation;
-    public double x;
-    public double y;
+    private int type;
+    private int rotation;
+    private double x;
+    private double y;
 
     public RoadTile(int type, int rotation, double x, double y) {
         this.type = type;
@@ -34,7 +33,6 @@ public class RoadTile {
                 break;
         }
     }
-
     public void drawType0Road(Group group, double cellWidth, double cellHeight, int rotation) {
         double roadWidth = cellWidth;
         double roadHeight = cellHeight - 10;
@@ -186,7 +184,19 @@ public class RoadTile {
     }
 
 
+    public int getType() {
+        return type;
+    }
 
+    public int getRotation() {
+        return rotation;
+    }
 
+    public double getX() {
+        return x;
+    }
 
+    public double getY() {
+        return y;
+    }
 }

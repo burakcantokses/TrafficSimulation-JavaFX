@@ -1,4 +1,4 @@
-import burak.tokses.parser.MetadataParser;
+import burak.tokses.parser.LevelParser;
 import burak.tokses.ui.build.Building;
 import burak.tokses.ui.road.RoadTile;
 import burak.tokses.ui.traffic.TrafficLight;
@@ -12,66 +12,70 @@ import javafx.stage.Stage;
 
 public class TrafficSimulatorApplication extends Application {
 
+    private static final String LEVEL_FILE_FORMAT = "level%d.txt";
+    private static final String ALLOWED_CRASHES_TEXT = "Allowed Crashes: %d";
+    private static final String CARS_TO_WIN_TEXT = "Cars to Win: %d";
+
     @Override
     public void start(Stage primaryStage) {
         int level = 5;
-        String levelFile = "level" + level + ".txt";
-        MetadataParser levelParser = new MetadataParser();
+        String levelFile = String.format(LEVEL_FILE_FORMAT, level);
+        LevelParser levelParser = new LevelParser();
         levelParser.parseFile(levelFile);
 
         Group root = new Group();
 
-        // Izgara çizimi
-        int gridX = levelParser.metadata.getGridX();
-        int gridY = levelParser.metadata.getGridY();
-        double cellWidth = levelParser.metadata.getWidth() / gridX;
-        double cellHeight = levelParser.metadata.getHeight() / gridY;
+        drawGrid(root, levelParser);
+        displayGameInfo(root, levelParser);
 
-        for (int i = 0; i < gridX; i++) {
-            for (int j = 0; j < gridY; j++) {
-                Rectangle cell = new Rectangle(i * cellWidth, j * cellHeight, cellWidth, cellHeight);
-                cell.setFill(Color.TRANSPARENT); // Doldurma rengini şeffaf yap
-                cell.setStroke(Color.web("#95BED5")); // Sadece strokeli olarak ayarla
-                root.getChildren().add(cell);
-            }
-        }
+        drawRoads(root, levelParser);
+        drawBuildings(root, levelParser);
+        drawTrafficLights(root, levelParser);
 
-        // Kaç kaza yapılabilir
-        System.out.println("Allowed Crashes: " + levelParser.metadata.getAllowedCrashes());
-        // Ekrana ekle text olarak ekle
-        root.getChildren().add(new Text(10, 20, "Allowed Crashes: " + levelParser.metadata.getAllowedCrashes()));
-
-        // Kazanmak için kaç araba gerekiyor
-        System.out.println("Cars to Win: " + levelParser.metadata.getCarsToWin());
-        // Ekrana ekle text olarak ekle
-        root.getChildren().add(new Text(10, 40, "Cars to Win: " + levelParser.metadata.getCarsToWin()));
-
-
-
-        // Yolları çiz
-        for (RoadTile roadTile : levelParser.roadTiles) {
-            roadTile.draw(root, cellWidth, cellHeight);
-        }
-
-        // Binaları çiz
-        for (Building building : levelParser.buildings) {
-            root.getChildren().add(building.toNode(cellWidth, cellHeight));
-        }
-
-        // Trafik ışıklarını çiz
-        for (TrafficLight trafficLight : levelParser.trafficLights) {
-            trafficLight.draw(root, cellWidth);
-        }
-
-        // CarManager
-//        CarManager carManager = new CarManager(levelParser.trafficLights, levelParser.paths);
-//        carManager.createCars(root);
-
-        Scene scene = new Scene(root, levelParser.metadata.getWidth(), levelParser.metadata.getHeight());
+        Scene scene = new Scene(root, levelParser.getMetadata().getWidth(), levelParser.getMetadata().getHeight());
         scene.setFill(Color.web("#9BC6DF"));
         primaryStage.setTitle("Traffic Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void drawGrid(Group root, LevelParser levelParser) {
+        int gridX = levelParser.getMetadata().getGridX();
+        int gridY = levelParser.getMetadata().getGridY();
+        double cellWidth = levelParser.getMetadata().getWidth() / gridX;
+        double cellHeight = levelParser.getMetadata().getHeight() / gridY;
+
+        for (int i = 0; i < gridX; i++) {
+            for (int j = 0; j < gridY; j++) {
+                Rectangle cell = new Rectangle(i * cellWidth, j * cellHeight, cellWidth, cellHeight);
+                cell.setFill(Color.TRANSPARENT);
+                cell.setStroke(Color.web("#95BED5"));
+                root.getChildren().add(cell);
+            }
+        }
+    }
+
+    private void displayGameInfo(Group root, LevelParser levelParser) {
+        root.getChildren().add(new Text(10, 20, String.format(ALLOWED_CRASHES_TEXT, levelParser.getMetadata().getAllowedCrashes())));
+        root.getChildren().add(new Text(10, 40, String.format(CARS_TO_WIN_TEXT, levelParser.getMetadata().getCarsToWin())));
+    }
+
+    private void drawRoads(Group root, LevelParser levelParser) {
+        for (RoadTile roadTile : levelParser.getRoadTiles()) {
+            roadTile.draw(root, levelParser.getMetadata().getWidth() / levelParser.getMetadata().getGridX(), levelParser.getMetadata().getHeight() / levelParser.getMetadata().getGridY());
+        }
+    }
+
+    private void drawBuildings(Group root, LevelParser levelParser) {
+        for (Building building : levelParser.getBuildings()) {
+            root.getChildren().add(building.toNode(levelParser.getMetadata().getWidth() / levelParser.getMetadata().getGridX(), levelParser.getMetadata().getHeight() / levelParser.getMetadata().getGridY()));
+        }
+    }
+
+    private void drawTrafficLights(Group root, LevelParser levelParser) {
+        for (TrafficLight trafficLight : levelParser.getTrafficLights()) {
+            trafficLight.draw(root, levelParser.getMetadata().getWidth() / levelParser.getMetadata().getGridX());
+        }
     }
 
     public static void main(String[] args) {

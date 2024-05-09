@@ -9,17 +9,16 @@ import burak.tokses.ui.traffic.TrafficLight;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.List;
 import java.util.Scanner;
 
-public class MetadataParser {
+public class LevelParser {
     //list
-    public List<Building> buildings = new ArrayList<Building>();
-    public Metadata metadata;
-    public List<RoadTile> roadTiles = new ArrayList<RoadTile>();
-    public List<TrafficLight> trafficLights = new ArrayList<TrafficLight>();
-    public List<Path> paths = new ArrayList<>();
+    private List<Building> buildings = new ArrayList<Building>();
+    private Metadata metadata;
+    private List<RoadTile> roadTiles = new ArrayList<RoadTile>();
+    private List<TrafficLight> trafficLights = new ArrayList<TrafficLight>();
+    private List<Path> paths = new ArrayList<>();
 
     public void parseFile(String metadataFile) {
         try {
@@ -31,7 +30,7 @@ public class MetadataParser {
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Dosya bulunamadı.");
+            throw new RuntimeException("Metadata file not found: " + metadataFile, e);
         }
     }
 
@@ -54,7 +53,7 @@ public class MetadataParser {
                 parsePath(parts);
                 break;
             default:
-                System.out.println("Bilinmeyen satır tipi: " + line);
+                throw new IllegalArgumentException("Unknown line type: " + line);
         }
     }
 
@@ -123,5 +122,25 @@ public class MetadataParser {
 
         // Add the point to the Path
         path.addPoint(command, x, y);
+    }
+
+    public List<Building> getBuildings() {
+        return buildings;
+    }
+
+    public Metadata getMetadata() {
+        return metadata;
+    }
+
+    public List<RoadTile> getRoadTiles() {
+        return roadTiles;
+    }
+
+    public List<TrafficLight> getTrafficLights() {
+        return trafficLights;
+    }
+
+    public List<Path> getPaths() {
+        return paths;
     }
 }
