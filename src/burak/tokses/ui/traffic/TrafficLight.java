@@ -54,4 +54,8 @@ public class TrafficLight {
             }
         });
     }
+
+    public boolean isRed() {
+        return color.equals("RED");
+    }
 }

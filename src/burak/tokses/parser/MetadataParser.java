@@ -19,7 +19,6 @@ public class MetadataParser {
     public List<RoadTile> roadTiles = new ArrayList<RoadTile>();
     public List<TrafficLight> trafficLights = new ArrayList<TrafficLight>();
     public List<Path> paths = new ArrayList<Path>();
-    public Path path;
 
     public void parseFile(String metadataFile) {
         try {
@@ -97,7 +96,7 @@ public class MetadataParser {
         double y1 = Double.parseDouble(parts[2]);
         double x2 = Double.parseDouble(parts[3]);
         double y2 = Double.parseDouble(parts[4]);
-        String color = "red"; // Başlangıçta trafik ışığı kırmızı olarak ayarlanır
+        String color = "green"; // Başlangıçta trafik ışığı kırmızı olarak ayarlanır
         // TrafficLight işleme...
         TrafficLight trafficLight = new TrafficLight(x1, y1, x2, y2, color);
         trafficLights.add(trafficLight);
@@ -108,7 +107,23 @@ public class MetadataParser {
         String command = parts[2];
         double x = Double.parseDouble(parts[3]);
         double y = Double.parseDouble(parts[4]);
-        // Path işleme...
-        path = new Path(pathIndex, command, x, y);
+
+        // Check if the path with the given index already exists
+        Path path = null;
+        for (Path p : paths) {
+            if (p.getPathIndex() == pathIndex) {
+                path = p;
+                break;
+            }
+        }
+
+        // If the path does not exist, create a new one
+        if (path == null) {
+            path = new Path(pathIndex);
+            paths.add(path);
+        }
+
+        // Add the point to the path
+        path.addPoint(command, x, y);
     }
 }
