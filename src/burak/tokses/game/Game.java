@@ -1,6 +1,7 @@
 package burak.tokses.game;
 
 import burak.tokses.ui.path.Path;
+import burak.tokses.ui.traffic.TrafficLight;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import java.util.ArrayList;
@@ -10,12 +11,15 @@ public class Game {
     private List<Car> cars = new ArrayList<>();
     private Group root;
     private List<Path> paths;
+    private List<TrafficLight> trafficLights;
 
     private double time = 0;
+    private int previousPathIndex = -1;
 
 
-    public Game(List<Path> paths, Group root) {
+    public Game(List<Path> paths, List<TrafficLight> trafficLights, Group root) {
         this.paths = paths;
+        this.trafficLights = trafficLights;
         this.root = root;
     }
 
@@ -54,7 +58,8 @@ public class Game {
         // Spawn a new car at less frequent intervals
         if (time > 2) { // Adjust this value as needed
             if (Math.random() < 0.1) { // Adjust this value as needed
-                spawnCar();
+                if (cars.size() < 10) // Adjust this value as needed
+                    spawnCar();
             }
             time = 0;
         }
@@ -63,7 +68,12 @@ public class Game {
 
     public void spawnCar() {
         // Choose a random path
-        int randomIndex = (int) (Math.random() * paths.size());
+        int randomIndex;
+        do {
+            randomIndex = (int) (Math.random() * paths.size());
+        } while (randomIndex == previousPathIndex);
+        previousPathIndex = randomIndex;
+
         Path path = paths.get(randomIndex);
 
         // Get the start point of the path
@@ -81,7 +91,7 @@ public class Game {
         String direction = Math.random() < 0.5 ? "X" : "Y";
 
         // Create a new car at the start point
-        Car car = new Car(x, y, width, height, speed, acceleration, maxSpeed, direction, path);
+        Car car = new Car(x, y, width, height, speed, acceleration, maxSpeed, direction, path, trafficLights);
 
         // Add the car to the list of cars
         cars.add(car);

@@ -138,7 +138,7 @@ public class TrafficSimulatorApplication extends Application {
      * @param levelParser
      */
     private void startSimulation(Group root, LevelParser levelParser) {
-        Game game = new Game(levelParser.getPaths(), root);
+        Game game = new Game(levelParser.getPaths(), levelParser.getTrafficLights(), root);
         game.createTraffic();
     }
     /**

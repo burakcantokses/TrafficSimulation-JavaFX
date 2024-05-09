@@ -76,4 +76,28 @@ public class TrafficLight {
     public boolean isRed() {
         return color.equals("RED");
     }
+
+    /**
+     * Checks if the traffic light is currently green.
+     * @return True if the traffic light is green, otherwise false.
+     */
+    public boolean isGreen() {
+        return color.equals("GREEN");
+    }
+
+    public double getX1() {
+        return x1;
+    }
+
+    public double getY1() {
+        return y1;
+    }
+
+    public double getX2() {
+        return x2;
+    }
+
+    public double getY2() {
+        return y2;
+    }
 }

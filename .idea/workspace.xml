@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="en yakın bu">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="rotation added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/traffic/TrafficLight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +111,7 @@
       <workItem from="1715212774797" duration="3437000" />
       <workItem from="1715216239842" duration="2000" />
       <workItem from="1715244331841" duration="2842000" />
-      <workItem from="1715282917739" duration="4979000" />
+      <workItem from="1715282917739" duration="6991000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -350,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715287569748</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="rotation added">
+      <option name="closed" value="true" />
+      <created>1715287961026</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1715287961026</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="building hatasız" />
     <MESSAGE value="building hatasız 2" />
     <MESSAGE value="building hatasız 3" />
     <MESSAGE value="building hatasız 4" />
@@ -393,6 +403,7 @@
     <MESSAGE value="added comment lines" />
     <MESSAGE value="car created success" />
     <MESSAGE value="en yakın bu" />
-    <option name="LAST_COMMIT_MESSAGE" value="en yakın bu" />
+    <MESSAGE value="rotation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="rotation added" />
   </component>
 </project>
