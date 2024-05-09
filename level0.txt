@@ -1,3 +1,5 @@
 Metadata 800.0 800.0 15 15 4 70 7
-Building 0 0 1 5 1
-Building 0 180 1 5 5
+Building 1 0 1 5 1
+Building 1 90 1 5 4
+Building 1 270 1 5 7
+Building 1 180 1 5 10

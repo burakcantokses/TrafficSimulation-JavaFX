@@ -50,10 +50,12 @@ public class Building {
 
     public Group createType0Building(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
         // Outer rectangle
+        int additionalX = rotation == 90 ? 3 : 0;
+        int additionalY = rotation == 90 ? 1 : 0;
         double outerWidth = cellWidth * 2;
         double outerHeight = cellHeight * 3;
-        double outerX = (x-1) * cellWidth; // Subtract 1 from x before multiplying by cellWidth
-        double outerY = y * cellHeight;
+        double outerX = (x + additionalX) * cellWidth; // Subtract 1 from x before multiplying by cellWidth
+        double outerY = (y - additionalY) * cellHeight;
         Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
         outerRectangle.setArcWidth(12);
         outerRectangle.setArcHeight(12);
@@ -87,7 +89,17 @@ public class Building {
 
         Group group = new Group(outerRectangle, mainRectangle, innerRectangle);
 
-        group.setRotate(rotation);
+        switch (rotation) {
+            case 90:
+                group.getTransforms().add(new Rotate(270, outerX, outerY + outerHeight));
+                break;
+            case 270:
+                group.getTransforms().add(new Rotate(90, outerX, outerY + outerHeight));
+                break;
+            default:
+                group.setRotate(rotation);
+                break;
+        }
         return group;
     }
 
@@ -140,11 +152,13 @@ public class Building {
     }
 
     public Group createType1Build(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
-        //outer rectangle
+        // Outer rectangle
+        int additionalX = rotation == 90 ? 3 : 0;
+        int additionalY = rotation == 270 ? 3 : 0;
         double outerWidth = cellWidth * 2;
         double outerHeight = cellHeight * 3;
-        double outerX = x * cellWidth; // Subtract 1 from x before multiplying by cellWidth
-        double outerY = y * cellHeight;
+        double outerX = (x + additionalX) * cellWidth; // Subtract 1 from x before multiplying by cellWidth
+        double outerY = (y - additionalY) * cellHeight;
         Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
         outerRectangle.setArcWidth(12);
         outerRectangle.setArcHeight(12);
@@ -153,20 +167,37 @@ public class Building {
         outerRectangle.setStrokeWidth(2);
         outerRectangle.setStrokeType(StrokeType.OUTSIDE);
 
-        Group group = new Group(outerRectangle);
+        // Main circle
+        double mainCircleX = outerX + outerWidth / 2; // Center of the outerRectangle
+        double mainCircleY = outerY + outerHeight / 3; // 1/3 from the top of the outerRectangle
+        double mainCircleRadius = outerWidth * 0.4; // 40% of the outerRectangle's width
+
+        Circle mainCircle = new Circle(mainCircleX, mainCircleY, mainCircleRadius);
+        mainCircle.setFill(getColor(color));
+        mainCircle.setStroke(getStrokeColor(color));
+        mainCircle.setStrokeWidth(5);
+
+        // Inner circle
+        double innerCircleRadius = mainCircleRadius * 0.8; // 80% of the mainCircle's radius
+        Circle innerCircle = new Circle(mainCircleX, mainCircleY, innerCircleRadius);
+        innerCircle.setFill(getColor(color));
+        innerCircle.setStroke(getStrokeColor(color));
+        innerCircle.setStrokeWidth(5);
+
+        Group group = new Group(outerRectangle, mainCircle, innerCircle);
         switch (rotation) {
             case 90:
                 group.getTransforms().add(new Rotate(270, outerX, outerY + outerHeight));
                 break;
-            case 180:
-                group.setRotate(180);
-                break;
             case 270:
                 group.getTransforms().add(new Rotate(90, outerX, outerY + outerHeight));
                 break;
+            default:
+                group.setRotate(rotation);
+                break;
         }
-        return group;
 
+        return group;
     }
 
     public Rectangle createType2Building(int x, int y, double cellWidth, double cellHeight, int color) {
