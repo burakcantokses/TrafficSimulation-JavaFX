@@ -7,7 +7,6 @@
     <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="en yakın bu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/game/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +108,7 @@
       <workItem from="1715212774797" duration="3437000" />
       <workItem from="1715216239842" duration="2000" />
       <workItem from="1715244331841" duration="2842000" />
-      <workItem from="1715282917739" duration="4593000" />
+      <workItem from="1715282917739" duration="4979000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -343,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715287214763</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="en yakın bu">
+      <option name="closed" value="true" />
+      <created>1715287569748</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1715287569748</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
