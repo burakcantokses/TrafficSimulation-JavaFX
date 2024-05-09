@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="car created">
+    <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="buildtype0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/level0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +107,7 @@
       <workItem from="1715193648569" duration="11743000" />
       <workItem from="1715212774797" duration="3437000" />
       <workItem from="1715216239842" duration="2000" />
-      <workItem from="1715244331841" duration="712000" />
+      <workItem from="1715244331841" duration="1495000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -295,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715215378126</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="buildtype0">
+      <option name="closed" value="true" />
+      <created>1715245074192</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715245074192</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +340,7 @@
     <MESSAGE value="level 1" />
     <MESSAGE value="car deneme" />
     <MESSAGE value="car created" />
-    <option name="LAST_COMMIT_MESSAGE" value="car created" />
+    <MESSAGE value="buildtype0" />
+    <option name="LAST_COMMIT_MESSAGE" value="buildtype0" />
   </component>
 </project>

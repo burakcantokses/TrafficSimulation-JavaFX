@@ -40,7 +40,7 @@ public class Building {
             case 0:
                 return createType0Building(x, y, cellWidth, cellHeight, rotation, color);
             case 1:
-                return createType1Building(x, y, cellWidth, cellHeight, rotation, color);
+                return createType1Build(x, y, cellWidth, cellHeight, rotation, color);
             case 2:
                 return createType2Building(x, y, cellWidth, cellHeight, color);
             default:
@@ -52,7 +52,7 @@ public class Building {
         // Outer rectangle
         double outerWidth = cellWidth * 2;
         double outerHeight = cellHeight * 3;
-        double outerX = x * cellWidth; // Subtract 1 from x before multiplying by cellWidth
+        double outerX = (x-1) * cellWidth; // Subtract 1 from x before multiplying by cellWidth
         double outerY = y * cellHeight;
         Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
         outerRectangle.setArcWidth(12);
@@ -86,17 +86,8 @@ public class Building {
         //rotatede kaymalar meydana geliyor.
 
         Group group = new Group(outerRectangle, mainRectangle, innerRectangle);
-        switch (rotation) {
-            case 90:
-                group.getTransforms().add(new Rotate(270, outerX, outerY + outerHeight));
-                break;
-            case 180:
-                    group.setRotate(180);
-                break;
-            case 270:
-                group.getTransforms().add(new Rotate(90, outerX, outerY + outerHeight));
-                break;
-        }
+
+        group.setRotate(rotation);
         return group;
     }
 
@@ -146,6 +137,36 @@ public class Building {
                 break;
         }
         return group;
+    }
+
+    public Group createType1Build(int x, int y, double cellWidth, double cellHeight, int rotation, int color) {
+        //outer rectangle
+        double outerWidth = cellWidth * 2;
+        double outerHeight = cellHeight * 3;
+        double outerX = x * cellWidth; // Subtract 1 from x before multiplying by cellWidth
+        double outerY = y * cellHeight;
+        Rectangle outerRectangle = new Rectangle(outerX, outerY, outerWidth, outerHeight);
+        outerRectangle.setArcWidth(12);
+        outerRectangle.setArcHeight(12);
+        outerRectangle.setFill(Color.web("#EFF9FE"));
+        outerRectangle.setStroke(Color.BLACK);
+        outerRectangle.setStrokeWidth(2);
+        outerRectangle.setStrokeType(StrokeType.OUTSIDE);
+
+        Group group = new Group(outerRectangle);
+        switch (rotation) {
+            case 90:
+                group.getTransforms().add(new Rotate(270, outerX, outerY + outerHeight));
+                break;
+            case 180:
+                group.setRotate(180);
+                break;
+            case 270:
+                group.getTransforms().add(new Rotate(90, outerX, outerY + outerHeight));
+                break;
+        }
+        return group;
+
     }
 
     public Rectangle createType2Building(int x, int y, double cellWidth, double cellHeight, int color) {
