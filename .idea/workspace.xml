@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d25d7929-05ec-46ee-bb90-c53a445b1791" name="Changes" comment="180 ve 0 derece çok doğru">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/level0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/level0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrafficSimulatorApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/build/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/car/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/game/car/CarManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/parser/MetadataParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/burak/tokses/ui/path/Path.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/burak/tokses/ui/path/Path.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +89,7 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TrafficSimulatorApplication" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TrafficSimulatorApplication" />
       </list>
     </recent_temporary>
   </component>

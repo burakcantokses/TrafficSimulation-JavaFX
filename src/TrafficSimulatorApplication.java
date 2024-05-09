@@ -1,8 +1,5 @@
-import burak.tokses.game.car.Car;
-import burak.tokses.game.car.CarManager;
 import burak.tokses.parser.MetadataParser;
 import burak.tokses.ui.build.Building;
-import burak.tokses.ui.path.Path;
 import burak.tokses.ui.road.RoadTile;
 import burak.tokses.ui.traffic.TrafficLight;
 import javafx.application.Application;
@@ -66,25 +63,9 @@ public class TrafficSimulatorApplication extends Application {
             trafficLight.draw(root, cellWidth);
         }
 
-        // Create a CarManager
-        CarManager carManager = new CarManager(levelParser.trafficLights);
-
-        // Create cars and add them to the CarManager
-        for (Path path : levelParser.paths) {
-            // Check if the first command of the path is a MoveTo command
-            if (path.getCommands().get(0).equals("MoveTo")) {
-                double x = path.getXPoints().get(0);
-                double y = path.getYPoints().get(0);
-                double speed = 0.5; // Set the speed of the car
-                double width = cellWidth * 0.2; // Set the width of the car
-                double height = cellHeight * 0.4; // Set the height of the car
-                Car car = new Car(x, y, speed, width, height, path);
-                System.out.println("Created car at (" + x + ", " + y + ") with size (" + width + ", " + height + ")");
-                carManager.addCar(car, root);
-            }
-        }
-        // Start the CarManager
-        //carManager.start();
+        // CarManager
+//        CarManager carManager = new CarManager(levelParser.trafficLights, levelParser.paths);
+//        carManager.createCars(root);
 
         Scene scene = new Scene(root, levelParser.metadata.getWidth(), levelParser.metadata.getHeight());
         scene.setFill(Color.web("#9BC6DF"));

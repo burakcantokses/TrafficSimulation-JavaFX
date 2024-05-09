@@ -1,25 +1,24 @@
 package burak.tokses.ui.path;
 
+import javafx.geometry.Point2D;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Path {
     private int pathIndex;
     private List<String> commands;
-    private List<Double> xPoints;
-    private List<Double> yPoints;
+    private List<Point2D> points;
 
     public Path(int pathIndex) {
         this.pathIndex = pathIndex;
         this.commands = new ArrayList<>();
-        this.xPoints = new ArrayList<>();
-        this.yPoints = new ArrayList<>();
+        this.points = new ArrayList<>();
     }
 
     public void addPoint(String command, double x, double y) {
         commands.add(command);
-        xPoints.add(x);
-        yPoints.add(y);
+        points.add(new Point2D(x, y));
     }
 
     public int getPathIndex() {
@@ -30,11 +29,11 @@ public class Path {
         return commands;
     }
 
-    public List<Double> getXPoints() {
-        return xPoints;
+    public List<Point2D> getPoints() {
+        return points;
     }
 
-    public List<Double> getYPoints() {
-        return yPoints;
+    public Point2D getStartPoint() {
+        return points.get(0);
     }
 }

@@ -9,6 +9,7 @@ import burak.tokses.ui.traffic.TrafficLight;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Dictionary;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class MetadataParser {
     public Metadata metadata;
     public List<RoadTile> roadTiles = new ArrayList<RoadTile>();
     public List<TrafficLight> trafficLights = new ArrayList<TrafficLight>();
-    public List<Path> paths = new ArrayList<Path>();
+    public List<Path> paths = new ArrayList<>();
 
     public void parseFile(String metadataFile) {
         try {
@@ -108,22 +109,19 @@ public class MetadataParser {
         double x = Double.parseDouble(parts[3]);
         double y = Double.parseDouble(parts[4]);
 
-        // Check if the path with the given index already exists
-        Path path = null;
-        for (Path p : paths) {
-            if (p.getPathIndex() == pathIndex) {
-                path = p;
-                break;
-            }
-        }
+        // Check if a Path with this index already exists
+        Path path = paths.stream()
+                .filter(p -> p.getPathIndex() == pathIndex)
+                .findFirst()
+                .orElse(null);
 
-        // If the path does not exist, create a new one
+        // If the Path doesn't exist, create a new one
         if (path == null) {
             path = new Path(pathIndex);
             paths.add(path);
         }
 
-        // Add the point to the path
+        // Add the point to the Path
         path.addPoint(command, x, y);
     }
 }
