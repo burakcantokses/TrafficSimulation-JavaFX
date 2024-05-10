@@ -18,6 +18,7 @@ public class TrafficSimulatorApplication extends Application {
 
     /** File format for level configuration files. */
     private static final String LEVEL_FILE_FORMAT = "level%d.txt";
+    public static String LEVEL_FILE_PATH = "";
 
     /** Text format for displaying allowed crashes in the game. */
     private static final String ALLOWED_CRASHES_TEXT = "Allowed Crashes: %d";
@@ -32,7 +33,7 @@ public class TrafficSimulatorApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Level to be loaded
-        String levelFile = String.format(LEVEL_FILE_FORMAT, MainMenu.level);
+        String levelFile = String.format(MainMenu.level == - 1 ? LEVEL_FILE_PATH :LEVEL_FILE_FORMAT, MainMenu.level);
         LevelParser levelParser = new LevelParser();
         levelParser.parseFile(levelFile);
 

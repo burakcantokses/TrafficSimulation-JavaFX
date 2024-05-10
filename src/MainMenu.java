@@ -84,6 +84,7 @@ public class MainMenu extends Application {
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if (selectedFile != null) {
                 // Özel seviye seçildiğinde level'i -1 olarak ayarla
+                TrafficSimulatorApplication.LEVEL_FILE_PATH = selectedFile.getAbsolutePath();
                 level = -1;
                 System.out.println("Seçilen dosya: " + selectedFile.getAbsolutePath());
             } else {
