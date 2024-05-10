@@ -32,8 +32,7 @@ public class TrafficSimulatorApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Level to be loaded
-        int level = 1;
-        String levelFile = String.format(LEVEL_FILE_FORMAT, level);
+        String levelFile = String.format(LEVEL_FILE_FORMAT, MainMenu.level);
         LevelParser levelParser = new LevelParser();
         levelParser.parseFile(levelFile);
 
